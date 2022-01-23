@@ -1,0 +1,136 @@
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<div class="container-fluid">
+  <div class="row row1">
+    <div class="notice">
+      <i class="fal fa-exclamation-circle"></i>
+      <marquee width="100%" direction="right">
+      <span> || Do ảnh hưởng của dịch Covid-19, một số khu vực có thể nhận hàng chậm hơn dự kiến.
+        KT-PACK đang nỗ lực giao các đơn hàng trong thời gian sớm nhất. Cám ơn sự thông cảm của quý khách!</span>
+        <span> || Do ảnh hưởng của dịch Covid-19, một số khu vực có thể nhận hàng chậm hơn dự kiến.
+        KT-PACK đang nỗ lực giao các đơn hàng trong thời gian sớm nhất. Cám ơn sự thông cảm của quý khách!</span>
+        <span> || Do ảnh hưởng của dịch Covid-19, một số khu vực có thể nhận hàng chậm hơn dự kiến.
+        KT-PACK đang nỗ lực giao các đơn hàng trong thời gian sớm nhất. Cám ơn sự thông cảm của quý khách!</span>
+      </marquee>
+    </div>
+    <div class="noticate-freeship">
+      <img src="./assets/Storage/Upload/icon/freeship.png" alt="">
+      <marquee width="100%" direction="right">
+        <span> || Đơn hàng có thể có chế độ miễn phí vận chuyển xin hãy liên hệ để có thông tin chi tiết </span>
+        <span> || Đơn hàng có thể có chế độ miễn phí vận chuyển xin hãy liên hệ để có thông tin chi tiết </span>
+        <span> || Đơn hàng có thể có chế độ miễn phí vận chuyển xin hãy liên hệ để có thông tin chi tiết </span>
+        <span> || Đơn hàng có thể có chế độ miễn phí vận chuyển xin hãy liên hệ để có thông tin chi tiết </span>
+        <span> || Đơn hàng có thể có chế độ miễn phí vận chuyển xin hãy liên hệ để có thông tin chi tiết </span>
+        <span> || Đơn hàng có thể có chế độ miễn phí vận chuyển xin hãy liên hệ để có thông tin chi tiết </span>
+      </marquee>
+    </div>
+  </div>
+  <div class="row row2" id="content-bill">
+    <div class="list-product">
+      <h2>GIỎ HÀNG</h2>
+      <div class="product-heading">
+        <ul>
+          <li>
+            <mat-checkbox [(ngModel)]="choose" (ngModelChange)="this.dataServicesService.checkBoxALL(choose)"
+                          (click)=checkbox2() class="checkTotal"></mat-checkbox>
+            <span>Tất cả ({{dataCartSale.length}} sản phẩm)</span></li>
+          <li><span>Đơn giá</span></li>
+          <li><span>Số lượng</span></li>
+          <li><span>Thành tiền</span></li>
+          <li>
+            <button (click)="dataServicesService.deleteAllItemCart();checkbox2()"><i class="far fa-trash-alt"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div class="product-content">
+        <ul>
+          <li *ngFor="let item of dataServicesService.dataCart1; let i = index">
+            <div class="content-main">
+              <div class="checkboxItem">
+                <mat-checkbox (click)="checkbox2()" (ngModelChange)="this.dataServicesService.checkBoxItem1(i)"
+                              [(ngModel)]="this.dataServicesService.dataCart1[i].checkBoxItem"></mat-checkbox>
+              </div>
+              <div class="content-img">
+                <img src="{{item.img[0].link}}" alt="">
+              </div>
+              <div class="content-text">
+                <a routerLink="/productDetails/{{item.id.link}}"
+                   routerLinkActive="$routerLinkActive">{{item.id.name}}</a>
+              </div>
+            </div>
+            <div class="price">
+              <span>{{item.price.name}}</span>
+            </div>
+            <div class="quantity">
+              <button (click)="this.dataServicesService.tang(i)"><i class="fal fa-plus"></i></button>
+              <span>{{(item.quantity)}}</span>
+              <button [disabled]="item.quantity<=1" (click)="this.dataServicesService.giam(i)"><i
+                class="far fa-minus"></i></button>
+            </div>
+            <div class="totalQuantity">
+              <span>{{item.quantity}}*{{item.price.name}}</span>
+            </div>
+            <div class="garbage">
+              <button (click)="this.dataServicesService.deleteItemCard(i);checkBox1()"><i class="far fa-trash-alt"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="cart-total-prices">
+      <div class="bill">
+        <h2>Hóa Đơn</h2>
+        <table class="table-bill">
+          <tr>
+            <td>Tạm tính</td>
+            <td>Liên hệ</td>
+          </tr>
+          <tr>
+            <td>Giảm giá</td>
+            <td>Thương lượng</td>
+          </tr>
+          <tr class="totalPrices">
+            <td>Tổng cộng</td>
+            <td><p>Liên hệ (VNĐ)</p></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><p style="font-size: 80%;">(Đã bao gồm VAT nếu có)</p></td>
+          </tr>
+        </table>
+        <button *ngIf="dataCartSale.length===0" type="button"  class="chooseSale">Bạn chưa chọn sản phẩm nào!</button>
+        <button *ngIf="dataCartSale.length!==0" type="button" (click)="openDialog()" id="chooseSale" class="chooseSale">Mua Hàng ({{dataCartSale.length}})</button>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row row3">
+<!--    {{dataServicesService.dataInfoCustomer|json}}-->
+<!--    {{dataServicesService.dataCart1[0].id.name}}-->
+  </div>
+
+</div>
+
+  <!--<div class="">-->
+  <!--  <ul>-->
+  <!--    <li *ngFor="let item of dataServicesService.dataCart1">{{item.id.link}}||{{item.checkBoxItem}}</li>-->
+  <!--  </ul>-->
+  <!--</div>-->
+  <!--<div>&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</div>-->
+  <!--<div>{{choose}}</div>-->
+  <!--<div class="">-->
+  <!--  <ul>-->
+  <!--    <li *ngFor="let item of dataCartSale">{{item.id.name}}||{{item.checkBoxItem}}</li>-->
+  <!--  </ul>-->
+  <!--</div>-->
+
+<div class="toast-notification" style="display: none">
+  <div class="content-toast">
+    <span class="borderLeft"></span>
+    <i class="fal fa-shield-check"></i>
+    <span class="text">Đơn hàng đã được xử lí !</span>
+  </div>
+</div>
+  <app-footer-main></app-footer-main>

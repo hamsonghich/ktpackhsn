@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="row row1">
+      <div class="right">
+        <div class="cart">
+            <a  routerLink="/cart" routerLinkActive="$routerLinkActive">
+              <i matBadge="{{this.data.dataCart1.length}}"  matBadgeSize="medium" matBadgeColor="accent" class="fa fa-shopping-cart mr-2"></i>
+            </a>
+        </div>
+        <div class="pulse" (click)="showPulse()" >
+          <img src="./assets/Storage/Upload/banner/lienhe.png" alt="">
+        </div>
+        <div class="list_icon_contact" *ngIf="!showListSocial">
+          <ul  *ngIf="dataSocial">
+            <li title="facebook"> <span>Liên hệ qua Facebook</span><a target="_blank" href="{{dataSocial.facebook}}"><i  class="fab fa-facebook-f"></i></a>
+            </li>
+            <li title="messenger"><span>Nhắn tin qua Messenger</span><a target="_blank" href="{{dataSocial.messenger}}"><i title="messenger" class="fab fa-facebook-messenger"></i></a>
+              </li>
+            <li title="zalo"> <span>Nhắn tin qua Zalo</span><a target="_blank" href="{{dataSocial.zalo}}"> <img src="./assets/Storage/Upload/icon/zalo_icon.png" alt=""></a>
+            </li>
+            <li title="map"><span>Chỉ đường bản đồ</span><a target="_blank" href="{{dataSocial.map}}">   <i class="fas fa-map-marker-alt"></i></a>
+  
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  

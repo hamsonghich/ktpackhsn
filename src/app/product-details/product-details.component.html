@@ -1,0 +1,163 @@
+
+
+<div class="container-fluid">
+  <div class="row row1">
+    <div class="col-left">
+      <app-side-bar-left></app-side-bar-left>
+      <app-banner-sales></app-banner-sales>
+    </div>
+    <div class="col-right"  *ngIf="this.productItem1">
+      <div class="col-right__level1">
+        <div class="content-img">
+          <div class="content-img__avatar">
+            <div class="content-img__avatar--fake"></div>
+            <div class="content-img__avatar--fake1"></div>
+            <div class="tagDiscount">
+              <p>{{productItem1.discount.number}}%</p>
+              <p>GIẢM</p>
+            </div>
+            <img id="idImg{{i}}" *ngFor="let item of productItem1.img | slice: 0: 4;let i = index " class="img-item" src="{{item.link}}" alt="{{item.name}}">
+          </div>
+          <div class="content-img__slider">
+            <ul>
+              <li (click)="clickImg(i)" *ngFor="let item of productItem1.img | slice: 0: 4; let i = index" >
+                <img  class="item_img_small" id="img_details{{i}}" src="{{item.link}}" alt="{{item.name}}"
+                     [title]="item.name">
+              </li>
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="content-text">
+          <div class="box-caption">
+            <div class="tag-like">
+              <span>Yêu Thích</span>
+            </div>
+            <p class="box-caption_1">
+              {{productItem1.id.name}}
+            </p>
+          </div>
+          <div class="rating">
+            <span class="numberStar">{{productItem1.star.number}}</span>
+            <div class="class-one1">
+              <ng-template #t1 let-fill="fill">
+                        <span class="star" [class.full]="fill === 100">
+                          <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                        </span>
+              </ng-template>
+              <ngb-rating [(rate)]="productItem1.star.number" [starTemplate]="t1" [readonly]="true"
+                          [max]="5"></ngb-rating>
+            </div>
+            <div class="evaluate"><u>{{productItem1.evaluate.number}}</u> <span>Đánh Giá</span></div>
+            <div class="sellNumber">
+              <u>{{productItem1.sellNumber.name}}k </u> <span>Đã Bán</span>
+            </div>
+
+          </div>
+
+          <div class="caption_info">
+            <p>Tình trạng hàng: Còn Hàng</p>
+            <p>Lượt xem: {{productItem1.evaluate.number * 2}}</p>
+            <p>Kho Hàng: liên hệ {{dataServicesService.infoCompany.phone[0]}} báo giá tại kho sản xuất</p>
+            <p>Giá : <span>Liên Hệ</span></p>
+            <p>Nhận Báo Giá : <strong href="tel:0915220153"
+                                      style="color: #ff4500"> {{dataServicesService.infoCompany.phone[0]}}
+              || {{dataServicesService.infoCompany.phone[1]}}</strong></p>
+            <p>Nơi cung cấp : <strong style="color: #ff4500"> {{productItem1.address.name}}</strong></p>
+            <p>Mô tả ngắn : {{productItem1.id.name}}</p>
+<!--            <p>{{convertBoolean(this.productItem1.addCart)}}</p>-->
+            <div class="leftFlex">
+              <button class="addCart" (click)="addCart()">
+                <div *ngIf="convertBoolean(this.productItem1.addCart); then thenBlock else elseBlock"></div>
+                <ng-template #thenBlock><i class="fal fa-check-circle"></i><span>Đã thêm vào giỏ hàng</span></ng-template>
+                <ng-template #elseBlock> <i class="far fa-cart-plus"></i> <span>Thêm vào vào giỏ hàng</span></ng-template>
+              </button>
+            </div>
+
+
+
+          </div>
+
+          <div class="socials-share">
+            <p class="socials-share__caption">Chia sẻ nếu sản phẩm làm bạn hài lòng nhé </p>
+            <div class="socials-share__btn">
+              <button mat-raised-button style="background: #4064ac"><i class="fab fa-facebook-f"></i> Share</button>
+              <button mat-raised-button style="background: #43a8ee"><i class="fab fa-twitter"></i> Share</button>
+              <button mat-raised-button style="background-color: #db4437;"><i class="fab fa-gofore"></i> Share</button>
+              <button mat-raised-button style="background-color: #dd5348;"><i class="fa fa-envelope"></i> Share</button>
+              <button mat-raised-button style="background-color: #ffb932"><img style="width: 15px"
+                                                                               src="./assets/Storage/Upload/icon/zalo_icon.png"
+                                                                               alt=""> Share
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="toastAddCart">
+          <ul>
+            <li></li>
+            <li><i class="fas fa-check-circle"></i> <span>Đã thêm sản phẩm vào giỏ hàng !</span></li>
+            <li><button><i class="fas fa-times"></i></button></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-right__level2">
+        <div class="description-product">
+          <p class="description-product__title"><span>Mô tả sản phẩm</span></p>
+          <div class="description-product__intro" *ngIf="productItem1.description">
+<!--            <span>{{productItem1.description[0].title}}</span><br>-->
+            <span [innerHtml]="productItem1.description[0].title"></span>
+<!--            <p *ngFor="let item of productItem1.description[0].contentParam">{{item.param1}}</p>-->
+            <p  [innerHtml]="productItem1.description[0].content"></p>
+
+<!--            <span>{{productItem1.description[1].title}}</span>-->
+            <span  [innerHtml]="productItem1.description[1].title"></span>
+            <div class="table-details centerFlex">
+              <div  [innerHtml]="productItem1.description[1].content"></div>
+            </div>
+            <span [innerHtml]="productItem1.description[2].title"></span>
+            <div [innerHtml]="productItem1.description[2].content"></div>
+
+            <span [innerHtml]="productItem1.description[3].title"></span>
+            <div [innerHtml]="productItem1.description[3].content"></div>
+
+<!--            <div class="container-table">-->
+<!--              <table>-->
+<!--                <tr *ngFor="let item of productItem1.description[1].contentParam">-->
+<!--                  <td>{{item.param1}}</td>-->
+<!--                  <td>{{item.param2}}</td>-->
+<!--                </tr>-->
+<!--              </table>-->
+<!--            </div>-->
+            <div>
+              <app-product-details-more-info [hidden]="true"></app-product-details-more-info>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-right__level3">
+        <div>
+          <app-more-product (click)="reload()"></app-more-product>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row row2">
+    <app-footer-main></app-footer-main>
+  </div>
+</div>
+
+
+<script>
+
+
+</script>
+<router-outlet></router-outlet>
+
+<!--<div>{{productItem1|json}}</div>-->

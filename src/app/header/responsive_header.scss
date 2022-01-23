@@ -1,0 +1,256 @@
+@media only screen and (min-width: 1140px) {
+  .row1 {
+    height: 30px;
+  }
+  #top-header__right--menu {
+    display: none;
+  }
+  #screenMobile {
+    display: none;
+  }
+}
+
+@media only screen and(max-width: 1139px) and (min-width: 960px) {
+  .row1 {
+    height: 33px;
+  }
+  #top-header__right--menu {
+    display: none;
+  }
+  #screenMobile {
+    display: none;
+  }
+}
+
+@media only screen and(max-width: 959px) and (min-width: 720px) {
+  .row1 {
+    height: 40px;
+  }
+  #top-header__right--menu {
+    display: none;
+  }
+  #screenMobile {
+    display: none;
+  }
+  .midHeader {
+    height: 120px !important;
+
+    .top-header__right ul li a {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .box-socialList ul li {
+      height: 30px !important;
+      width: 30px !important;
+    }
+
+    .box-socialList ul li i {
+      font-size: 13px !important;
+    }
+
+    .logo {
+      transform: scale(0.7) !important;
+    }
+  }
+
+
+}
+
+@media only screen and(max-width: 719px) and (min-width: 540px) {
+  .row1 {
+    height: 33px;
+  }
+  #screenPC {
+    display: none;
+  }
+  .top-header__right {
+    height: 100%;
+    position: relative;
+  }
+  .container-listMenuTop {
+    position: absolute;
+    top: 33px;
+    right: 0;
+    background-color: var(--bg-gray);
+    height: auto !important;
+    display: none;
+    animation: faceOut linear 0.5s;
+  }
+  .container-listMenuTop.active{
+    z-index: 10;
+    display: block;
+    animation: faceIn linear 0.5s;
+  }
+  .top-header__right ul {
+    display: block !important;
+    width: 200px;
+    background-color: var(--bg-gray);
+  }
+  .top-header__right ul li {
+    padding: 5px 0 !important;
+    padding-left: 5px !important;
+  }
+  #top-header__right--menu {
+    float: right;
+    height: 33px;
+    width: 33px;
+  }
+  .midHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: auto !important;
+
+    .logo {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0 !important;
+    }
+
+    .searchBox {
+      width: 100%;
+    }
+
+    .box-socialList {
+      width: 100%;
+      display: flex;
+      padding: 20px 0 !important;
+      justify-content: center;
+    }
+
+    #screenMobile {
+      ::ng-deep mat-expansion-panel-header {
+        background-color: var(--primary-color);
+
+        .mat-expansion-indicator:after {
+          color: white;
+        }
+      }
+
+      ::ng-deep mat-panel-title {
+        align-items: center;
+        display: flex;
+
+        mat-icon {
+          color: antiquewhite;
+        }
+
+        b {
+          margin-left: 10px;
+          color: antiquewhite;
+        }
+
+      }
+    }
+
+    .centerCare {
+      img {
+        width: 30px !important;
+      }
+
+      a {
+        font-size: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 539px) {
+  .row1 {
+    height: 33px;
+  }
+  #screenPC {
+    display: none;
+  }
+  .top-header__right {
+    height: 100%;
+    position: relative;
+  }
+  .hotlineText {
+    display: none;
+  }
+  .container-listMenuTop {
+    position: absolute;
+    top: 33px;
+    right: 0;
+    background-color: var(--bg-gray);
+    height: auto !important;
+    display: none;
+    animation: faceOut linear 0.5s;
+  }
+  .container-listMenuTop.active {
+    z-index: 10;
+    display: block;
+    animation: faceIn linear 0.5s;
+  }
+  .top-header__right ul {
+    display: block !important;
+    width: 200px;
+    background-color: var(--bg-gray);
+  }
+  .top-header__right ul li {
+    padding: 5px 0 !important;
+    padding-left: 5px !important;
+  }
+  #top-header__right--menu {
+    float: right;
+    height: 33px;
+    width: 33px;
+  }
+
+  .midHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: auto !important;
+
+    .logo {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0 !important;
+    }
+
+    .searchBox {
+      width: 100%;
+    }
+
+    .box-socialList {
+      width: 100%;
+      display: flex;
+      padding: 20px 0 !important;
+      justify-content: center;
+    }
+  }
+
+  .centerCare {
+    img {
+      width: 28px !important;
+    }
+
+    a {
+      font-size: 90% !important;
+    }
+  }
+}
+
+@keyframes faceIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes faceOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

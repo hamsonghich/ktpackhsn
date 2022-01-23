@@ -1,0 +1,79 @@
+<div class="container-fluid">
+
+    <div class="title">
+      <i class="fad fa-wallet"></i><span>Xốp Pe Foam Eva</span>
+    </div>
+    <div class="toolbox">
+      <div class="toolbox__child">
+        <div class="displayPage">
+          <mat-form-field appearance="outline">
+            <mat-label>Hiển thị</mat-label>
+            <mat-select [(ngModel)]="chooseItemOfPage">
+              <mat-option *ngFor="let num of itemOfPageArr" [value]="num">
+                {{num}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="search">
+          <mat-form-field appearance="outline">
+            <mat-label>Tìm kiếm (không cần gõ dấu)</mat-label>
+            <input  matInput [(ngModel)]="keySearch" (ngModelChange)="keySearch=$event">
+            <button  (click)="searchKeyword(this.keySearch)" matSuffix mat-icon-button color="primary">
+              <mat-icon>search</mat-icon>
+            </button>
+          </mat-form-field>
+  
+        </div>
+        <button (click)=" sortStar()" class="sortStar" mat-raised-button><i class="fal fa-sort-alt"></i><span>Sắp xếp theo </span><i class="fas fa-stars"></i></button>
+        <button (click)="sortABC()" class="sortABC" mat-raised-button><i class="fal fa-sort-alpha-down"></i><span>Sắp xếp theo ABC</span></button>
+        <button (click)="sortDiscount()" class="sortDiscount" mat-raised-button><i class="fad fa-tags"></i><span>Sắp xếp giảm giá</span></button>
+        <button (click)="showAll()" class="showAll" mat-raised-button><i class="fad fa-globe-americas"></i><span>Hiển thị tất cả</span></button>
+      </div>
+      <button class="addProduct" mat-raised-button (click)="createXoppefoamevaBtn()"><i class="fad fa-plus-square"></i><span>Tạo thêm sản phẩm</span></button>
+    </div>
+    <table class="data_table" *ngIf="this.dataSearchKeyword">
+      <tr>
+        <th class="text-center" >STT</th>
+        <th class="text-center">Tên sản phẩm</th>
+        <th class="text-center">Phân loại</th>
+        <th class="text-center">Giá thành</th>
+        <th class="text-center">Số sao</th>
+        <th class="text-center">Giảm giá</th>
+        <th class="text-center">Ảnh sản phẩm</th>
+        <th class="text-center">Tác vụ</th>
+      </tr>
+      <tr *ngFor="let data of this.dataSearchKeyword| paginate: {itemsPerPage: this.chooseItemOfPage, currentPage: page} let i = index">
+        <td class="text-center bold" scope="col" >{{i}}</td>
+        <td class="text-center text-primary bold" scope="col" ><p>{{data.id.name}}</p></td>
+        <td class="text-center text-primary bold" scope="col" ><p>{{data.typeName.name}}</p></td>
+        <td class="text-center text-warning bold" scope="col" ><p>{{data.price.name}}</p></td>
+        <td class="text-center text-warning bold" scope="col"><p>{{data.star.number}}</p></td>
+        <td class="text-center text-warning bold" scope="col"><p>{{data.discount.number}}%</p></td>
+        <td class="imgArr" scope="col">
+          <img *ngFor="let item of data.img" style="width: 50px;height: 50px" [src]="item.link" alt="{{item.name}}">
+        </td>
+        <td style="">
+          <button (click)="returnCheckNotication(data); openNotication()"  mat-icon-button color="warn"><mat-icon>delete</mat-icon></button>
+          <button (click)="updateCustomer(data, '/xoppefoameva/')"  mat-icon-button color="primary"><mat-icon>mode_edit</mat-icon></button>
+        </td>
+      </tr>
+    </table>
+    <pagination-controls previousLabel="Trang trước" nextLabel="Trang sau" class="text-center" (pageChange)="page = $event"></pagination-controls>
+  </div>
+  
+  <!--<div>{{dataTableCustomer |json}}</div>-->
+  
+  <div [hidden]="isCheckNotication" class="fix-content">
+    <div class="box-question">
+      <p class="text-notication"><i style="color: var(--bs-danger);font-size: 160%;margin-right:7px;" class="fad fa-exclamation-triangle"></i>Bạn có chắc chắn muốn xóa sản phẩm này không ?</p>
+      <div class="btnMulti">
+        <button (click)="closeNotication(); deleteDataCustomer(this.temp)" mat-stroked-button color="warn"><i class="fal fa-check"></i><span>Có</span></button>
+        <button (click)="closeNotication()" mat-stroked-button color="primary"><i class="fal fa-times"></i><span>Không</span></button>
+      </div>
+  
+    </div>
+  </div>
+  <!--<div>&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</div>-->
+  <!--<div *ngIf="this.dataContentXoppefoameva1">{{this.dataContentXoppefoameva1|json}}</div>-->
+  

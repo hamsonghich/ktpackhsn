@@ -1,0 +1,35 @@
+<form class="" [formGroup]="formContentSocial">
+  <div class="contentItem" >
+    <mat-form-field appearance="outline">
+      <mat-label class="text-primary">** link facebook</mat-label>
+      <input matInput formControlName="facebook">
+    </mat-form-field>
+  </div>
+
+  <div class="contentItem" >
+    <mat-form-field appearance="outline">
+      <mat-label class="text-primary">** link messenger</mat-label>
+      <input matInput formControlName="messenger">
+    </mat-form-field>
+  </div>
+
+  <div class="contentItem" >
+    <mat-form-field appearance="outline">
+      <mat-label class="text-primary">** link zalo</mat-label>
+      <input matInput formControlName="zalo">
+    </mat-form-field>
+  </div>
+
+  <div class="contentItem">
+    <mat-form-field appearance="outline">
+      <mat-label class="text-primary">** link map</mat-label>
+      <input matInput  formControlName="map">
+    </mat-form-field>
+  </div>
+
+</form>
+<div style="margin-top: 10px;">
+  <button mat-raised-button color="accent" mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()" *ngIf="!isEdit" >Submit</button>
+  <button mat-raised-button color="warn" (click)="saveRowData()" *ngIf="isEdit" >Save</button>
+</div>

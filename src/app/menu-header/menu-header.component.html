@@ -1,0 +1,33 @@
+<div class="menuHeader">
+  <ul>
+    <li>
+      <a class="linkMother" href="" routerLink="{{dataHeader[0].mother.link}}"
+         routerLinkActive="$router_link-active$"></a>
+      <h1>{{dataHeader[0].mother.name}}</h1>
+    </li>
+    <li>
+      <a class="linkMother" href="" routerLink="{{dataHeader[1].mother.link}}"
+         routerLinkActive="$router_link-active$"></a>
+      <h1>{{dataHeader[1].mother.name}}</h1>
+    </li>
+    <li *ngFor="let item of dataHeader| slice: 2: 6"><a class="linkMother" href="" routerLink="{{item.mother.link}}"
+                                                        routerLinkActive="$router_link-active$"></a>
+      <h1>{{item.mother.name}}</h1>
+      <ul>
+        <li *ngFor="let item1 of item.child"><a href="" routerLinkActive="$router_link-active$"
+                                                routerLink="/productType/{{item1.link}}"><h2>{{item1.name}}</h2></a>
+        </li>
+      </ul>
+    </li>
+      <li>
+        <a class="linkMother" href="" routerLink="{{dataHeader[dataHeader.length - 2].mother.link}}"
+           routerLinkActive="$router_link-active$"></a> <h1>{{dataHeader[dataHeader.length - 2].mother.name}}</h1>
+      </li>
+      <li>
+        <a class="linkMother" href="" routerLink="{{dataHeader[dataHeader.length - 1].mother.link}}"
+           routerLinkActive="$router_link-active$"></a> <h1>{{dataHeader[dataHeader.length - 1].mother.name}}</h1>
+      </li>
+  </ul>
+
+
+</div>

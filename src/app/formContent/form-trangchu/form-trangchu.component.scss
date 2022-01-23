@@ -1,0 +1,57 @@
+form.formContentTrangchu {
+  width: 100%;
+}
+::ng-deep mat-form-field{
+  font-size: 90% !important;
+}
+button {
+  margin-right: 10px;
+}
+
+
+.content1Img, .content1New {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border: 1px solid var(--primary1-color);
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  .content1Img__child {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    div{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    ::ng-deep mat-form-field {
+      width: 45% !important;
+    }
+
+  }
+}
+
+.contentLinkVideo {
+  width: 100%;
+  justify-content: flex-start;
+  ::ng-deep mat-form-field{
+    width: 45%;
+  }
+}
+
+.content2Title, .content3Title, .content4Title, .content5Title, .content6Title{
+  width: 100%;
+  display: flex;justify-content: space-between;
+  border: 1px solid var(--primary1-color);
+  border-radius: 5px;flex-wrap: wrap;
+  padding: 10px;
+  margin-bottom: 20px;
+  ::ng-deep mat-form-field{
+    width: 45%;
+  }
+}
+

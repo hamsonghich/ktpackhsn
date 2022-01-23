@@ -1,0 +1,69 @@
+<div class="tieudeMain">
+    <div class="container-fluid pm0">
+      <div class="title leftFlex"><i class="fad fa-key"></i><span>Tiêu đề</span></div>
+      <div class="content-child">
+        <button (click)="updateAllHeader(this.dataContentHeader)"  mat-raised-button class="customHeader"><i class="fad fa-edit"></i><span>Tùy chỉnh thành phần header</span></button>
+      </div>
+  
+      <div class="content-table" *ngIf="dataContentHeader">
+        <div class="content-table__child">
+          <p class="text-title">Thùng nhựa Danpla</p>
+          <table class="data_table">
+            <tr>
+              <th>Tên (Name)</th>
+              <th>Liên kết (Link)</th>
+            </tr>
+            <tr *ngFor="let item of dataContentHeader.thungnhuadanpla">
+              <td>{{item.name}}</td>
+              <td>{{item.link}}</td>
+            </tr>
+          </table>
+        </div>
+  
+        <div class="content-table__child">
+          <p class="text-title">Vách nhựa Danpla</p>
+          <table class="data_table">
+            <tr>
+              <th>Tên (Name)</th>
+              <th>Liên kết (Link)</th>
+            </tr>
+            <tr *ngFor="let item of dataContentHeader.vachnhuadanpla">
+              <td>{{item.name}}</td>
+              <td>{{item.link}}</td>
+            </tr>
+          </table>
+        </div>
+  
+        <div class="content-table__child">
+          <p class="text-title">Xốp PE FOAM EVA</p>
+          <table class="data_table">
+            <tr>
+              <th>Tên (Name)</th>
+              <th>Liên kết (Link)</th>
+            </tr>
+            <tr *ngFor="let item of dataContentHeader.xoppefoameva">
+              <td>{{item.name}}</td>
+              <td>{{item.link}}</td>
+            </tr>
+          </table>
+        </div>
+  
+        <div class="content-table__child">
+          <p class="text-title">Xốp bóng khí</p>
+          <table class="data_table">
+            <tr>
+              <th>Tên (Name)</th>
+              <th>Liên kết (Link)</th>
+            </tr>
+            <tr *ngFor="let item of dataContentHeader.xopbongkhi">
+              <td>{{item.name}}</td>
+              <td>{{item.link}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--<div>{{dataContentHeader |json}}</div>-->
+  

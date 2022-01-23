@@ -1,0 +1,120 @@
+
+<form action="" [formGroup]="formContentTrangchu">
+  <p class="text-warning">Nội dung đoạn 1</p>
+  <div  class="logoImg">
+    <div class="logoImg__child">
+        <mat-form-field appearance="outline">
+          <mat-label class="text-primary">** logo ảnh</mat-label>
+          <input matInput placeholder="link logo ảnh" formControlName="imgLogo">
+        </mat-form-field>
+    </div>
+  </div>
+  <div  class="content1New">
+    <div class="content1Img__child" formArrayName="content1New" *ngFor="let item of content1New.controls; let i = index">
+      <div class="itemArr" [formGroupName]="i">
+        <mat-form-field appearance="outline">
+          <mat-label class="text-primary">** tiêu đề {{i}}</mat-label>
+          <input matInput placeholder="tiêu đề" formControlName="name">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label class="text-primary">** link tiêu đề {{i}}</mat-label>
+          <input matInput placeholder="link tiêu đề" formControlName="link">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div class="content1Img" >
+    <div class="content1Img__child" formArrayName="content1Img" *ngFor="let item of content1Img.controls; let i = index">
+      <div [formGroupName]="i">
+        <mat-form-field appearance="outline">
+          <mat-label class="text-primary">** tên ảnh {{i}}</mat-label>
+          <input matInput placeholder="tên ảnh {{i}}" formControlName="name">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label class="text-primary">** link ảnh {{i}}</mat-label>
+          <input matInput placeholder="link ảnh {{i}}" formControlName="link">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="contentLinkVideo">
+      <mat-form-field appearance="outline">
+        <mat-label class="text-primary">**link video</mat-label>
+        <input matInput placeholder="link video" formControlName="content1Video">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <p class="text-warning">Nội dung đoạn 2</p>
+  <div class="content2Title" formGroupName="content2Title">
+    <mat-form-field appearance="outline">
+      <mat-label class="text-primary">**title1</mat-label>
+      <input matInput placeholder="title1" formControlName="title1">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label class="text-primary">**title2</mat-label>
+      <input matInput placeholder="title2" formControlName="title2">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label class="text-primary">**title3</mat-label>
+      <input matInput placeholder="title3" formControlName="title3">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label class="text-primary">**imgMain</mat-label>
+      <input matInput placeholder="imgMain" formControlName="imgMain">
+    </mat-form-field>
+
+  </div>
+  <p class="text-warning">Nội dung đoạn 3</p>
+  <div class="content3Title" formGroupName="content3Title">
+    <mat-form-field appearance="outline">
+      <mat-label class="text-primary">**title1</mat-label>
+      <input matInput placeholder="title1" formControlName="title1">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label class="text-primary">** Link ảnh khuyễn mãi</mat-label>
+      <input matInput placeholder="Link ảnh khuyễn mãi" formControlName="imgLinkPromotion">
+    </mat-form-field>
+  </div>
+  <p class="text-warning">Nội dung đoạn 4</p>
+  <div class="content4Title" formGroupName="content4Title">
+    <mat-form-field appearance="outline">
+      <mat-label class="text-primary">**title1</mat-label>
+      <input matInput placeholder="title1" formControlName="title1">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label class="text-primary">** Link ảnh khuyễn mãi</mat-label>
+      <input matInput placeholder="Link ảnh khuyễn mãi" formControlName="imgLinkPromotion">
+    </mat-form-field>
+  </div>
+  <p class="text-warning">Nội dung đoạn 5</p>
+  <div class="content5Title" formGroupName="content5Title">
+    <mat-form-field appearance="outline">
+      <mat-label class="text-primary">**title1</mat-label>
+      <input matInput placeholder="title1" formControlName="title1">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label class="text-primary">** Link ảnh khuyễn mãi</mat-label>
+      <input matInput placeholder="Link ảnh khuyễn mãi" formControlName="imgLinkPromotion">
+    </mat-form-field>
+  </div>
+  <p class="text-warning">Nội dung đoạn 6</p>
+  <div class="content6Title" formGroupName="content6Title">
+    <mat-form-field appearance="outline">
+      <mat-label class="text-primary">**title1</mat-label>
+      <input matInput placeholder="title1" formControlName="title1">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label class="text-primary">** Link ảnh khuyễn mãi</mat-label>
+      <input matInput placeholder="Link ảnh khuyễn mãi" formControlName="imgLinkPromotion">
+    </mat-form-field>
+  </div>
+
+</form>
+
+<div style="margin-top: 10px;">
+  <button mat-raised-button color="accent" mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()" *ngIf="!isEdit" >Submit</button>
+  <button mat-raised-button color="warn" (click)="saveRowData()" *ngIf="isEdit" >Save</button>
+</div>
+
+

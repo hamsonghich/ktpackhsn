@@ -1,0 +1,118 @@
+<form class="formContent" action="" [formGroup]="formContentVachnhuadanpla">
+
+  <div class="contentItem typeName" formGroupName="typeName">
+    <mat-form-field appearance="outline">
+      <mat-label class="text-primary">** Tên kiểu sản phẩm</mat-label>
+      <mat-select formControlName="name">
+        <mat-option *ngFor="let item of typeVachnhuadanpla"
+                    [value]="item.link">{{item.link}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="contentItem id" formGroupName="id">
+
+    <mat-form-field appearance="outline">
+      <mat-label class="text-primary">** tên sản phẩm</mat-label>
+      <input matInput placeholder="tên sản phẩm" formControlName="name">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label class="text-primary">** link sản phẩm</mat-label>
+      <input matInput placeholder="link sản phẩm" formControlName="link">
+    </mat-form-field>
+
+  </div>
+
+  <button mat-raised-button color="primary" [disabled]="checkLengthArr('imgItem')" (click)="addArrItem('imgItem')">
+    Thêm ảnh (tối đa 4 ảnh)
+  </button>
+
+  <div class="contentItem img">
+    <div  formArrayName="img" *ngFor="let item of img1.controls; let i = index">
+      <div [formGroupName]="i">
+        <p class="text-warning">ảnh thứ {{i}}</p>
+        <mat-form-field appearance="outline">
+          <mat-label class="text-primary">** tên ảnh</mat-label>
+          <input matInput placeholder="tên ảnh" formControlName="name">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label class="text-primary">** link ảnh</mat-label>
+          <input matInput placeholder="link ảnh" formControlName="link">
+        </mat-form-field>
+        <button mat-raised-button color="accent" [disabled]="checkLengthArr('imgItem')" (click)="insertItemUp(i, 'imgItem')">Chèn Trên</button>
+        <button mat-raised-button color="warn" (click)="deleteItem(i, 'imgItem')">Xóa</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="contentItem address" formGroupName="address">
+    <mat-form-field appearance="outline">
+      <mat-label class="text-primary">** địa chỉ</mat-label>
+      <input matInput placeholder="địa chỉ" formControlName="name">
+    </mat-form-field>
+  </div>
+
+  <div class="contentItem price" formGroupName="price">
+    <mat-form-field appearance="outline">
+      <mat-label class="text-primary">** giá sản phẩm</mat-label>
+      <input matInput placeholder="giá sản phẩm" formControlName="name">
+    </mat-form-field>
+  </div>
+
+  <div class="contentItem sellNumber" formGroupName="sellNumber">
+    <mat-form-field appearance="outline">
+      <mat-label class="text-primary">** số lượng đã bán</mat-label>
+      <input matInput placeholder="số lượng đã bán" formControlName="name">
+    </mat-form-field>
+    <div class="text-warning" *ngIf="sellNumber.errors">Nhập kiểu số</div>
+  </div>
+
+  <div class="contentItem star" formGroupName="star">
+    <mat-form-field appearance="outline">
+      <mat-label class="text-primary">** số sao 1 -> 5 (có thể điền theo dạng .lẻ)</mat-label>
+      <input readonly matInput placeholder="số sao 4.5" formControlName="number">
+    </mat-form-field>
+  </div>
+
+  <div class="contentItem discount" formGroupName="discount">
+    <mat-form-field appearance="outline">
+      <mat-label class="text-primary">** giảm giá (%)</mat-label>
+      <input matInput placeholder="giảm giá (%)" formControlName="number">
+    </mat-form-field>
+    <div class="text-warning" *ngIf="discountNumber.errors">Nhập kiểu số</div>
+  </div>
+
+  <div class="contentItem evaluate" formGroupName="evaluate">
+    <mat-form-field appearance="outline">
+      <mat-label class="text-primary">** số lượng đánh giá</mat-label>
+      <input matInput placeholder="số lượng đánh giá" formControlName="number">
+    </mat-form-field>
+    <div class="text-warning" *ngIf="evaluateNumber.errors">Nhập kiểu số</div>
+  </div>
+
+  <button mat-raised-button color="primary" [disabled]="checkLengthArr('descriptionItem')" (click)="addArrItem('descriptionItem')">
+    Thêm mô tả
+  </button>
+  <div class="contentItem description">
+    <div  formArrayName="description" *ngFor="let item of description1.controls; let i = index">
+      <div [formGroupName]="i">
+        <p class="text-warning">Đoạn thứ {{i}}</p>
+        <angular-editor placeholder="tiêu đề" formControlName="title"></angular-editor>
+        <angular-editor [config]="editorConfig" placeholder="nội dung" formControlName="content"></angular-editor>
+        <button mat-raised-button color="accent" [disabled]="checkLengthArr('descriptionItem')" (click)="insertItemUp(i, 'descriptionItem')">Chèn Trên</button>
+        <button mat-raised-button color="warn" (click)="deleteItem(i, 'descriptionItem')">Xóa</button>
+      </div>
+    </div>
+  </div>
+
+
+</form>
+
+<div class="groupBtn" style="margin-top: 10px;">
+  <button mat-raised-button color="accent" mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" [disabled]="formContentVachnhuadanpla.invalid" (click)="onSubmit()" *ngIf="!isEdit">Submit</button>
+  <button mat-raised-button color="warn" (click)="saveRowData()" *ngIf="isEdit">Save</button>
+</div>
+
+

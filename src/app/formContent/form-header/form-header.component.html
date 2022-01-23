@@ -1,0 +1,143 @@
+<div class="btnGroup">
+  <ul>
+    <li><button (click)="showContent(0)" mat-raised-button class="customBtn1"><i class="fad fa-caret-down"></i><span>Thùng nhựa Danpla</span></button></li>
+    <li><button (click)="showContent(1)" mat-raised-button class="customBtn1"><i class="fad fa-caret-down"></i><span>Vách nhựa Danpla</span></button></li>
+    <li><button (click)="showContent(2)" mat-raised-button class="customBtn1"><i class="fad fa-caret-down"></i><span>Xốp PE FOAM EVA</span></button></li>
+    <li><button (click)="showContent(3)" mat-raised-button class="customBtn1"><i class="fad fa-caret-down"></i><span>Xốp bóng khí</span></button></li>
+  </ul>
+  <ul>
+    <li class="text-warning">Lưu ý: Hãy xóa ô các ô kông được điền để được kết quả tốt nhất</li>
+  </ul>
+</div>
+
+<form class="formContent" action="" [formGroup]="formContentHeader">
+  <div class="box-form-thungnhua" *ngIf="this.showContentArr[0].value">
+    <p class="text-header">Thùng nhựa Danpla</p>
+    <button mat-raised-button class="customBtn1" color="primary" [disabled]="checkLengthArr('thungnhuadanpla')" (click)="addArrItem('thungnhuadanpla')">
+      <i class="fad fa-plus-square"></i><span>Thêm số loại thùng nhựa (tối đa 10 loại)</span>
+    </button>
+    <div class="thungnhuadanpla" formArrayName="thungnhuadanpla" *ngFor="let item of typeThungnhuadanpla.controls; let i = index">
+      <div class="formarray" [formGroupName]="i">
+        <p class="text-warning">Loại thùng nhưa thứ {{i}}</p>
+        <div class="formarray__child">
+          <mat-form-field appearance="outline">
+            <mat-label class="text-primary">** name</mat-label>
+            <input matInput formControlName="name">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label class="text-primary">** link</mat-label>
+            <input matInput formControlName="link">
+          </mat-form-field>
+          <button mat-raised-button class="customBtn1" color="accent" [disabled]="checkLengthArr('thungnhuadanpla')" (click)="insertItemUp(i, 'thungnhuadanpla')">
+            <i class="fad fa-edit"></i> <span>Chèn Trên</span>
+          </button>
+          <button mat-raised-button class="customBtn2" color="warn" (click)="deleteItem(i, 'thungnhuadanpla')">
+            <i class="fad fa-trash-alt"></i><span>Xóa</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="box-form-vachnhua" *ngIf="this.showContentArr[1].value">
+    <p class="text-header">Vách nhựa Danpla</p>
+    <button mat-raised-button color="primary"  class="customBtn1" [disabled]="checkLengthArr('vachnhuadanpla')" (click)="addArrItem('vachnhuadanpla')">
+      <i class="fad fa-plus-square"></i><span> Thêm số loại vách nhựa (tối đa 10 loại)</span>
+    </button>
+
+    <div class="vachnhuadanpla" formArrayName="vachnhuadanpla" *ngFor="let item of typeVachnhuadanpla.controls; let i = index">
+      <div  class="formarray" [formGroupName]="i">
+        <p class="text-warning">Loại vách nhưa thứ {{i}}</p>
+        <div class="formarray__child">
+          <mat-form-field appearance="outline">
+            <mat-label class="text-primary">** name</mat-label>
+            <input matInput formControlName="name">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label class="text-primary">** link</mat-label>
+            <input matInput formControlName="link">
+          </mat-form-field>
+          <button mat-raised-button color="accent" class="customBtn1" [disabled]="checkLengthArr('vachnhuadanpla')" (click)="insertItemUp(i, 'vachnhuadanpla')">
+            <i class="fad fa-edit"></i> <span>Chèn Trên</span>
+          </button>
+          <button mat-raised-button color="warn" class="customBtn2" (click)="deleteItem(i, 'vachnhuadanpla')">
+            <i class="fad fa-trash-alt"></i><span>Xóa</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="box-form-xoppefoameva" *ngIf="this.showContentArr[2].value">
+    <p class="text-header">Xốp Pe Foam Eva</p>
+    <button mat-raised-button color="primary"  class="customBtn1" [disabled]="checkLengthArr('xoppefoameva')" (click)="addArrItem('xoppefoameva')">
+      <i class="fad fa-plus-square"></i><span> Thêm số loại xốp pe foam eva (tối đa 10 loại)</span>
+    </button>
+
+    <div class="xoppefoameva" formArrayName="xoppefoameva" *ngFor="let item of typeXoppefoameva.controls; let i = index">
+      <div  class="formarray" [formGroupName]="i">
+        <p class="text-warning">Loại xốp pe foam eva thứ {{i}}</p>
+        <div class="formarray__child">
+          <mat-form-field appearance="outline">
+            <mat-label class="text-primary">** name</mat-label>
+            <input matInput formControlName="name">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label class="text-primary">** link</mat-label>
+            <input matInput formControlName="link">
+          </mat-form-field>
+          <button mat-raised-button color="accent" class="customBtn1" [disabled]="checkLengthArr('xoppefoameva')" (click)="insertItemUp(i, 'xoppefoameva')">
+            <i class="fad fa-edit"></i> <span>Chèn Trên</span>
+          </button>
+          <button mat-raised-button color="warn" class="customBtn2" (click)="deleteItem(i, 'xoppefoameva')">
+            <i class="fad fa-trash-alt"></i><span>Xóa</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="box-form-xopbongkhi" *ngIf="this.showContentArr[3].value">
+    <p class="text-header">Xốp Bóng Khí</p>
+    <button mat-raised-button color="primary"  class="customBtn1" [disabled]="checkLengthArr('xopbongkhi')" (click)="addArrItem('xopbongkhi')">
+      <i class="fad fa-plus-square"></i><span> Thêm số loại xốp bóng khí (tối đa 10 loại)</span>
+    </button>
+
+    <div class="xopbongkhi" formArrayName="xopbongkhi" *ngFor="let item of typeXopbongkhi.controls; let i = index">
+      <div  class="formarray" [formGroupName]="i">
+        <p class="text-warning">Loại xốp bóng khí thứ {{i}}</p>
+        <div class="formarray__child">
+          <mat-form-field appearance="outline">
+            <mat-label class="text-primary">** name</mat-label>
+            <input matInput formControlName="name">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label class="text-primary">** link</mat-label>
+            <input matInput formControlName="link">
+          </mat-form-field>
+          <button mat-raised-button color="accent" class="customBtn1" [disabled]="checkLengthArr('xopbongkhi')" (click)="insertItemUp(i, 'xopbongkhi')">
+            <i class="fad fa-edit"></i> <span>Chèn Trên</span>
+          </button>
+          <button mat-raised-button color="warn" class="customBtn2" (click)="deleteItem(i, 'xopbongkhi')">
+            <i class="fad fa-trash-alt"></i><span>Xóa</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+</form>
+<div class="groupBtn" style="margin-top: 10px;">
+  <button mat-raised-button color="accent" mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" [disabled]="formContentHeader.invalid" (click)="onSubmit()" *ngIf="!isEdit">Submit</button>
+  <button mat-raised-button color="warn" (click)="saveRowData()" *ngIf="isEdit">Save</button>
+</div>

@@ -1,0 +1,82 @@
+
+
+<div class="container-fluid">
+  <div class="row" *ngIf="linkmap">
+    <div style="width: 100%;height: 500px; margin-top: 20px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+      <iframe [src]="linkmap" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+  <div class="row" *ngIf="dataContentLienhe">
+    <div class="mainContentContact">
+      <h1 class="titleMainContact" [innerHTML]="dataContentLienhe.nameCompany"></h1>
+      <p class="desMainContact" [innerHTML]="dataContentLienhe.trustTitle"></p>
+      <div class="rowMainContact">
+        <div class="colMainContact">
+          <div class="img-container">
+            <i class="fa fa-phone"></i>
+          </div>
+          <h2 class="titleColMainContact">Điện Thoại</h2>
+          <h3 class="contentColMainContact" [innerHTML]="dataContentLienhe.phoneNumber"></h3>
+        </div>
+        <div class="colMainContact">
+          <div class="img-container">
+            <i class="fa fa-envelope"></i>
+          </div>
+          <h2 class="titleColMainContact">Email</h2>
+          <h3 class="contentColMainContact" [innerHTML]="dataContentLienhe.email"></h3>
+        </div>
+        <div class="colMainContact">
+          <div class="img-container">
+            <i class="fa fa-map-marker-alt"></i>
+          </div>
+          <h2 class="titleColMainContact">Nhà Máy</h2>
+          <h3 class="contentColMainContact" [innerHTML]="dataContentLienhe.addressCompany"></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row row3">
+    <form [formGroup]="infoCustomerForm" (ngSubmit)="onSubmit()" novalidate>
+      <div class="row">
+        <div class="form-content-left ">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Tên của bạn</mat-label>
+              <input  matInput required placeholder="Tên của bạn" name="name" formControlName="name">
+            </mat-form-field>
+            <div *ngIf="infoCustomerForm.controls.name.errors" class="notification">* Hãy nhập tên của bạn</div>
+            <mat-form-field appearance="outline">
+              <mat-label>Địa chỉ mail</mat-label>
+              <input type="email" matInput required placeholder="Địa chỉ mail" name="email" formControlName="email">
+            </mat-form-field>
+            <div *ngIf="infoCustomerForm.controls.email.errors" class="notification">* Hãy nhập email của bạn</div>
+            <mat-form-field appearance="outline">
+              <mat-label>Số điện thoại</mat-label>
+              <input matInput required placeholder="Số điện thoại" name="phone" formControlName="phone">
+            </mat-form-field>
+            <div *ngIf="infoCustomerForm.controls.phone.errors" class="notification">* Hãy nhập số điện thoại của bạn</div>
+          </div>
+        </div>
+        <div class="form-content-right ">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Nội dung</mat-label>
+              <textarea rows="9" matInput required placeholder="Nội dung" name="content" formControlName="content">
+                      </textarea>
+            </mat-form-field>
+            <div *ngIf="infoCustomerForm.controls.content.errors" class="notification">* Hãy nhập nội dung của bạn</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row row31">
+        <button [disabled]="infoCustomerForm.invalid" mat-raised-button color="accent" (click)="onSubmit()">GỬI THÔNG TIN</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="row row4">
+    <app-footer-main></app-footer-main>
+  </div>
+</div>

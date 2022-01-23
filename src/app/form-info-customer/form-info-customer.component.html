@@ -1,0 +1,54 @@
+<h2 mat-dialog-title>Nhập thông tin của bạn</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="formInfoSale">
+    <form [formGroup]="profileForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Họ và tên * </mat-label>
+        <input matInput id="fullName" type="text" formControlName="fullName" placeholder="Nguyễn Văn A">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Số điện thoại * </mat-label>
+        <input matInput id="phoneNumber" type="text" formControlName="phoneNumber" placeholder="0393483309">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email của bạn * </mat-label>
+        <input matInput id="yourEmail" type="text" formControlName="yourEmail" placeholder="example@gmail.com">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Tỉnh/Thành phố * </mat-label>
+        <mat-select   [(ngModel)]="tinh" (ngModelChange)="getDataQuanHuyen()" formControlName="addressTinh" placeholder="Hà Nội" required>
+          <mat-option  *ngFor = "let item of tinhArr1" value="{{item}}">{{item}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Quận/Huyện * </mat-label>
+        <mat-select  [(ngModel)]="huyen" (ngModelChange)="getDataQuanXa()"  id="addressHuyen" formControlName="addressHuyen" placeholder="Đống Đa">
+          <mat-option *ngFor="let item of tinhArrQuan1" value="{{item}}">{{item}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Xã/Phường * </mat-label>
+        <mat-select [(ngModel)]="xa" id="addressXa" formControlName="addressXa" placeholder="Khương Thượng">
+          <mat-option *ngFor="let item of tinhArrXa1" value="{{item}}">{{item}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Địa chỉ * </mat-label>
+        <input matInput id="addressDetails" type="text" formControlName="addressDetails" placeholder="Ví dụ: Số 20, ngõ 90">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Ghi chú đơn hàng (tuỳ chọn) </mat-label>
+        <textarea rows="9" matInput id="note" type="text" formControlName="note"
+        placeholder="Ghi chú về đơn hàng, ví dụ: thời gian hay chỉ dẫn địa điểm giao hàng chi tiết hơn."
+        ></textarea>
+      </mat-form-field>
+<!--      <div>{{tinh|json}}</div>-->
+    </form>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close="">Cancel</button>
+  <button class="selled" [disabled]="profileForm.invalid" mat-button [mat-dialog-close]="true" (click)="onSubmit();sold();" cdkFocusInitial>Đặt hàng</button>
+</mat-dialog-actions>
+
+

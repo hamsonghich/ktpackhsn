@@ -1,0 +1,27 @@
+
+
+
+<div class="container-fluid">
+  <div class="row row1">
+    <div class="col-left">
+      <app-side-bar-left></app-side-bar-left>
+
+      <app-banner-sales></app-banner-sales>
+    </div>
+    <div class="col-right">
+      <div class="header-title">
+        <span>Tin tức khuyến mãi</span>
+      </div>
+      <div class="title-content">
+        <h3 [innerHTML]="dataContentTintuc.param1"></h3>
+        <p [innerHTML]="dataContentTintuc.param2"></p>
+        <div class="img-promotion">
+          <img [src]="dataContentTintuc.imgLink"  alt="">
+        </div>
+        <p [innerHTML]="dataContentTintuc.param3"></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer-main></app-footer-main>

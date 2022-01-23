@@ -1,0 +1,47 @@
+@import "responsive.scss";
+::ng-deep mat-dialog-content{
+  width: 90%;
+  margin-left: 5% !important;
+  padding: 0!important;
+
+    .formInfoSale{
+      ::ng-deep mat-form-field:nth-child(1){
+        width: 100%;
+      }
+      ::ng-deep mat-form-field:nth-child(2){
+        width: calc(95%/2);
+        margin-right: 5%;
+      }
+      ::ng-deep mat-form-field:nth-child(3){
+        width: calc(95%/2);
+      }
+      ::ng-deep mat-form-field:nth-child(4){
+        width: calc(95%/2);
+        margin-right: 5%;
+      }
+      ::ng-deep mat-form-field:nth-child(5){
+        width: calc(95%/2);
+      }
+      ::ng-deep mat-form-field:nth-child(6){
+        width: calc(95%/2);
+        margin-right: 5%;
+      }
+      ::ng-deep mat-form-field:nth-child(7){
+        width: calc(95%/2);
+      }
+      ::ng-deep mat-form-field:nth-child(8){
+        width: calc(100%);
+      }
+
+
+    }
+}
+::ng-deep mat-dialog-actions{
+  ::ng-deep .mat-focus-indicator.selled.mat-button.mat-button-base.mat-button-disabled{
+    background-color: white!important;
+    border-radius: 5px;
+  }
+  ::ng-deep .mat-focus-indicator.selled.mat-button.mat-button-base{
+    background-color: var(--primary1-color) !important;
+  }
+}

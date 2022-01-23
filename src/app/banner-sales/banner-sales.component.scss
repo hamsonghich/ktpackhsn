@@ -1,0 +1,17 @@
+.container-fluid{
+    .row1{
+      .banner:nth-child(1){
+        display: none;
+      }
+      .banner{
+        width: 100%;
+        margin: 20px 0;
+        img{
+          border-radius: 10px;
+          width: 90%;
+          margin-left: 5%;
+        }
+      }
+    }
+  }
+  

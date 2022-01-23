@@ -1,0 +1,79 @@
+<div class="container-fluid">
+  <div class="row row1">
+    <div class="col-left">
+      <i class="fas fa-th-large"></i>
+      <span>Quản trị viên</span>
+    </div>
+    <div class="col-right">
+      <ul class="leftFlex">
+        <li>
+          <i class="fal fa-share"></i>
+          <a href="" routerLink="/trang-chu">Vào trang web</a>
+        </li>
+        <li>
+          <i class="fal fa-id-card-alt"></i>
+          <a href="">Liên hệ</a>
+        </li>
+        <li>
+          <i class="fal fa-cart-plus"></i>
+          <a href="">Đơn hàng</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row row2">
+    <div class="col-left list-header">
+      <div class="list-header__title">
+        <i class="far fa-home"></i>
+         <span>Trang chủ Admin</span>
+      </div>
+      <div class="list-header__content">
+        <div class="list-header__content--item trang-chu">
+          <button (click)="activeHiddenBtn('trangchu')" id="trangchu  "><i class="fad fa-layer-minus"></i><span>Trang chủ</span></button>
+        </div>
+        <div class="list-header__content--item social">
+          <button (click)="activeHiddenBtn('social')" id="social  "><i class="fad fa-share-alt"></i><span>Mạng xã hội</span></button>
+        </div>
+        <div class="list-header__content--item tieu-de-main">
+          <button (click)="activeHiddenBtn('tieudeMain')" id="tieudeMain"><i class="fad fa-key"></i><span>Tiêu đề</span></button>
+        </div>
+        <div class="list-header__content--item tin-tuc">
+          <button (click)="activeHiddenBtn('tintuc')" id="tintuc"><i class="fad fa-newspaper"></i><span>Tin tức</span></button>
+        </div>
+        <div class="list-header__content--item lien-he">
+          <button (click)="activeHiddenBtn('lienhe')"><i class="fad fa-id-card-alt"></i><span>Liên hệ</span></button>
+        </div>
+        <div class="list-header__content--item gioi-thieu">
+          <button (click)="activeHiddenBtn('gioithieu')"><i class="fas fa-blanket"></i><span>Giới thiệu</span></button>
+        </div>
+
+        <div class="list-header__content--item thung-nhua-danpla">
+          <button (click)="activeHiddenBtn('thungnhuadanpla')"><i class="fad fa-box-open"></i><span>Thùng nhựa Danpla</span></button>
+        </div>
+
+        <div class="list-header__content--item vach-nhua-danpla">
+          <button (click)="activeHiddenBtn('vachnhuadanpla')"><i class="fad fa-chimney"></i><span>Vách nhựa Danpla</span></button>
+        </div>
+        <div class="list-header__content--item xop-pe-foam-eva">
+          <button (click)="activeHiddenBtn('xoppefoameva')"><i class="fad fa-wallet"></i><span>Xốp Pe Foam Eva</span></button>
+        </div>
+        <div class="list-header__content--item xop-pe-foam-eva">
+          <button (click)="activeHiddenBtn('xopbongkhi')"><i class="fad fa-badge"></i><span>Xốp bóng khí</span></button>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-right list-content">
+      <app-content-admin></app-content-admin>
+    </div>
+  </div>
+</div>
+
+<!--<button (click)="excute(this.items)">excute</button>-->
+
+
+
+<!--<div *ngIf="items">{{items[0][0].addCart}}</div>-->
+
+<!--<div *ngIf="items">{{items[0][0].addCart}}</div>-->
+<!--<button (click)="show()">show</button>-->

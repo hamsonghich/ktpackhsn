@@ -1,0 +1,29 @@
+
+
+<div class="container-fluid">
+  <div class="row row1">
+    <div class="content-about" *ngIf="dataContentGioithieu">
+      <h2 class="intro"><i class="fad fa-map-signs"></i>Giới thiệu</h2>
+      <h3 class="nameCompany" [innerHTML]="dataContentGioithieu.nameCompany"></h3>
+      <span class="nameTrust" [innerHTML]="dataContentGioithieu.nameTrust"></span><br>
+      <span class="nameIntro" [innerHTML]="dataContentGioithieu.nameIntro"></span><br>
+      <p [innerHtml]="dataContentGioithieu.historyCompany"></p>
+      <p [innerHtml]="dataContentGioithieu.commitCompany"></p>
+      <div class="content-img">
+        <img src="{{dataContentGioithieu.imgLink}}" alt="anh gioi thieu kt pack">
+      </div>
+
+      <div class="address">
+        <div [innerHtml]="dataContentGioithieu.adviseCompany"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="row row2">
+    <app-footer-main></app-footer-main>
+  </div>
+</div>
+
+

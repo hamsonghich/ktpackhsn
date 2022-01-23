@@ -1,0 +1,45 @@
+
+
+
+<div class="lienhe">
+    <div class="container-fluid pm0">
+      <div class="title leftFlex"><i class="fad fa-id-card-alt"></i><span>Liên hệ</span></div>
+      <div class="content-child">
+        <div class="content-child__top">
+          <button mat-raised-button color="accent" (click)="openDialogContentLienhe()">Tạo mới liên hệ</button>
+          <button mat-raised-button color="warn" (click)="updateAllLienhe(this.dataContentLienhe)">Chỉnh sửa liên hệ</button>
+        </div>
+        <div class="content-child__mid"  *ngIf="this.dataContentLienhe">
+          <div class="param1 content_param">
+            <p class="text-warning">** mapLink</p>
+            <div style="width: 100%;height: 500px; margin-top: 20px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+              <iframe *ngIf="linkmap" [src]="linkmap" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+          </div>
+          <div class="param2 content_param">
+            <p class="text-warning">** nameCompany</p>
+            <p [innerHTML]="dataContentLienhe.nameCompany"></p>
+          </div>
+          <div class="content_param trustTitle">
+            <p class="text-warning">** trustTitle</p>
+            <p [innerHTML]="dataContentLienhe.trustTitle"></p>
+          </div>
+          <div class="param3 content_param">
+            <p class="text-warning">** phoneNumber</p>
+            <p [innerHTML]="dataContentLienhe.phoneNumber"></p>
+          </div>
+          <div class="param4 content_param">
+            <p class="text-warning">** email</p>
+            <p [innerHTML]="dataContentLienhe.email"></p>
+          </div>
+          <div class="param4 content_param">
+            <p class="text-warning">** addressCompany</p>
+            <p [innerHTML]="dataContentLienhe.addressCompany"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  

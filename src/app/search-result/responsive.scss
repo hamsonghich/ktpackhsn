@@ -1,0 +1,263 @@
+@media only screen and (min-width: 1140px) {
+
+}
+
+@media only screen and(max-width: 1139px) and (min-width: 960px) {
+  .col-left {
+    ::ng-deep app-side-bar-left {
+      font-size: 85% !important;
+
+      .mat-expansion-panel-header-title {
+        font-size: 85% !important;
+      }
+    }
+
+    .banner-sales {
+      width: 100%;
+      height: auto;
+
+
+      .banner-sales__1 {
+
+      }
+    }
+  }
+  .col-right {
+    width: 75%;
+
+
+    .list_total_product {
+      ul {
+        li {
+          position: relative;
+          background-color: white;
+          width: 30% !important;
+          height: 320px;
+          margin: 10px;
+          border-radius: 5px;
+          border: 1px solid darkgray;
+
+        }
+
+      }
+
+    }
+  }
+}
+
+@media only screen and(max-width: 959px) and (min-width: 720px) {
+  .col-left {
+    display:none;
+    ::ng-deep app-side-bar-left {
+
+      .mat-expansion-panel-header-title {
+        font-size: 85% !important;
+      }
+    }
+
+    .banner-sales {
+      width: 100%;
+      height: auto;
+
+
+      .banner-sales__1 {
+
+      }
+    }
+  }
+
+  .col-right {
+    width: 100% !important;
+
+
+    .list_total_product {
+      ul {
+        li {
+          position: relative;
+          background-color: white;
+          width: 30% !important;
+          height: 320px;
+          margin: 10px;
+          border-radius: 5px;
+          border: 1px solid darkgray;
+
+        }
+
+      }
+
+    }
+  }
+
+}
+
+@media only screen and(max-width: 719px) and (min-width: 540px) {
+  .col-left {
+    display:none;
+    ::ng-deep app-side-bar-left {
+
+      .mat-expansion-panel-header-title {
+        font-size: 85% !important;
+      }
+    }
+
+    .banner-sales {
+      width: 100%;
+      height: auto;
+
+
+      .banner-sales__1 {
+
+      }
+    }
+  }
+
+  .col-right {
+    width: 100% !important;
+    .sort-bar{
+      height: 100px!important;
+      .sort-bar__label{
+        width: auto;
+      }
+      .sort-by-option{
+        flex-wrap: wrap;
+        div{
+          margin: 5px 0;
+        }
+      }
+    }
+
+    .list_total_product {
+      ul {
+        li {
+          position: relative;
+          background-color: white;
+          width: 45% !important;
+          height: 320px;
+          margin: 10px;
+          border-radius: 5px;
+          border: 1px solid darkgray;
+
+        }
+
+      }
+
+    }
+  }
+}
+
+@media only screen and (max-width: 413px) {
+
+      .col-left {
+        display:none;
+        ::ng-deep app-side-bar-left {
+
+          .mat-expansion-panel-header-title {
+            font-size: 85% !important;
+          }
+        }
+
+        .banner-sales {
+          width: 100%;
+          height: auto;
+
+
+          .banner-sales__1 {
+
+          }
+        }
+      }
+      .col-right {
+        width: 100% !important;
+        .sort-bar{
+          height: 150px!important;
+          .sort-bar__label{
+            display: none;
+          }
+          .sort-by-option{
+            margin-left: 10px;
+            flex-wrap: wrap;
+            div{
+              margin: 5px 0;
+            }
+          }
+        }
+
+        .list_total_product {
+          ul {
+            li {
+              position: relative;
+              background-color: white;
+              width: 85% !important;
+              height: 320px;
+              margin: 10px;
+              border-radius: 5px;
+              border: 1px solid darkgray;
+
+            }
+
+          }
+
+        }
+      }
+
+}
+@media only screen and(max-width: 538px) and (min-width: 414px) {
+      .col-left {
+        display:none;
+        ::ng-deep app-side-bar-left {
+
+          .mat-expansion-panel-header-title {
+            font-size: 85% !important;
+          }
+        }
+
+        .banner-sales {
+          width: 100%;
+          height: auto;
+
+
+          .banner-sales__1 {
+
+          }
+        }
+      }
+
+      .col-right {
+        width: 100% !important;
+        .sort-bar{
+          height: 150px!important;
+          .sort-bar__label{
+            display: none;
+          }
+          .sort-by-option{
+            margin-left: 10px;
+            flex-wrap: wrap;
+            div{
+              margin: 5px 0;
+            }
+          }
+        }
+
+        .list_total_product {
+          ul {
+            li {
+              position: relative;
+              background-color: white;
+              width: 44% !important;
+              height: 320px;
+              margin: 10px;
+              border-radius: 5px;
+              border: 1px solid darkgray;
+
+              ngb-rating {
+                padding-right: 8px!important;
+                transform: scale(1.4);
+              }
+            }
+
+          }
+
+        }
+      }
+}
+

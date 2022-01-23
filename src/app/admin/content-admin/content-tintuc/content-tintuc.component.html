@@ -1,0 +1,43 @@
+
+
+
+<div class="tintuc">
+    <div class="container-fluid pm0">
+      <div class="title leftFlex"><i class="fad fa-newspaper"></i><span>Tin Tức</span></div>
+      <div class="content-child">
+        <div class="content-child__top">
+          <button mat-raised-button color="accent" (click)="openDialogContentTintuc()">Tạo mới tin tức</button>
+          <button mat-raised-button color="warn" (click)="updateAllTintuc(this.dataContentTintuc)">Chỉnh sửa tin tức</button>
+        </div>
+        <div class="content-child__mid"  *ngIf="this.dataContentTintuc">
+           <div class="param1 content_param">
+             <span class="text-warning">** param1</span>
+             <p [innerHTML]="dataContentTintuc.param1"></p>
+           </div>
+          <div class="param2 content_param">
+            <p class="text-warning">** param2</p>
+            <p [innerHTML]="dataContentTintuc.param2"></p>
+          </div>
+          <div class="content_param imgLink">
+            <p class="text-warning">** imgLink</p>
+            <img src="{{dataContentTintuc.imgLink}}"  alt="">
+          </div>
+          <div class="param3 content_param">
+            <p class="text-warning">** param3</p>
+            <p [innerHTML]="dataContentTintuc.param3"></p>
+          </div>
+          <div class="param4 content_param">
+            <p class="text-warning">** param4</p>
+            <p [innerHTML]="dataContentTintuc.param4"></p>
+          </div>
+          <div class="param4 content_param">
+            <p class="text-warning">** param4</p>
+            <p [innerHTML]="dataContentTintuc.param4"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  

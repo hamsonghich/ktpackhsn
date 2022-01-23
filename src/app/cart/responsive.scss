@@ -1,0 +1,117 @@
+@media only screen and (min-width: 1140px) {
+
+}
+
+@media only screen and(max-width: 1139px) and (min-width: 960px) {
+  .list-product{
+    width: calc(100% - 250px) !important;
+    .product-heading{
+      ul{
+        li:nth-child(1){
+          width: 50% !important;
+        }
+      }
+    }
+    .product-content{
+      ul{
+        li{
+          .content-main{
+            width: 50% !important;
+          }
+        }
+      }
+    }
+  }
+  .cart-total-prices{
+    width: (250px) !important;
+  }
+}
+
+@media only screen and(max-width: 959px) and (min-width: 720px) {
+  .list-product{
+    width: calc(100%) !important;
+    .product-heading{
+      ul{
+        li:nth-child(1){
+          width: 50% !important;
+        }
+      }
+    }
+    .product-content{
+      ul{
+        li{
+          .content-main{
+            width: 50% !important;
+          }
+        }
+      }
+    }
+  }
+  .cart-total-prices{
+    width: 100% !important;
+  }
+
+}
+
+@media only screen and(max-width: 719px) and (min-width: 540px) {
+  .list-product{
+    width: calc(100%) !important;
+    .product-heading{
+      ul{
+        li:nth-child(1){
+          width: 50% !important;
+        }
+      }
+    }
+    .product-content{
+      ul{
+        li{
+          .content-main{
+            width: 50% !important;
+          }
+        }
+      }
+    }
+  }
+  .cart-total-prices{
+    width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 539px) {
+  .list-product{
+    width: calc(100%) !important;
+    .product-heading{
+      ul{
+        li:nth-child(1){
+          width: 50% !important;
+        }
+      }
+    }
+    .product-content{
+      ul{
+        li{
+          .content-main{
+            width: 100% !important;
+          }
+          .price{
+            margin-left: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+          }
+          .quantity, .totalQuantity{
+            margin-top: 10px;   margin-bottom: 10px;
+          }
+          .garbage{
+            margin-left: 10px;
+            margin-top: 10px;   margin-bottom: 10px;
+          }
+
+        }
+      }
+    }
+  }
+  .cart-total-prices{
+    width: 100% !important;
+  }
+}

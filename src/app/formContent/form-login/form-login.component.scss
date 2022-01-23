@@ -1,0 +1,13 @@
+.container-fluid{
+.row1{
+  width: 100%;
+  form{
+    width: 100%;
+     display: flex;justify-content: center;
+     flex-direction: column;
+    ::ng-deep mat-form-field{
+      width: 80%;
+    }
+  }
+}
+}

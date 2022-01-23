@@ -1,0 +1,64 @@
+@media only screen and (min-width: 1140px) {
+
+}
+
+@media only screen and(max-width: 1139px) and (min-width: 960px) {
+
+}
+
+@media only screen and(max-width: 959px) and (min-width: 720px) {
+  ::ng-deep mat-dialog-content{
+    width: 100% !important;
+    margin: 0!important;
+    padding: 0!important;
+  }
+}
+
+@media only screen and(max-width: 719px) and (min-width: 540px) {
+  ::ng-deep mat-dialog-content{
+    width: 100% !important;
+    margin: 0!important;
+    padding: 0!important;
+
+    .formInfoSale{
+      width: 95% !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 539px) {
+  ::ng-deep mat-dialog-content{
+    width: 100% !important;
+    margin: 0!important;
+    padding: 0!important;
+
+    .formInfoSale{
+      width: 95% !important;
+
+      ::ng-deep mat-form-field:nth-child(1){
+        width: 100%!important;
+      }
+      ::ng-deep mat-form-field:nth-child(2){
+        width: 100%!important;
+      }
+      ::ng-deep mat-form-field:nth-child(3){
+        width: 100%!important;
+      }
+      ::ng-deep mat-form-field:nth-child(4){
+        width: 100%!important;
+      }
+      ::ng-deep mat-form-field:nth-child(5){
+        width: 100%!important;
+      }
+      ::ng-deep mat-form-field:nth-child(6){
+        width: 100%!important;
+      }
+      ::ng-deep mat-form-field:nth-child(7){
+        width: 100%!important;
+      }
+      ::ng-deep mat-form-field:nth-child(8){
+        width: 100%!important;
+      }
+    }
+  }
+}

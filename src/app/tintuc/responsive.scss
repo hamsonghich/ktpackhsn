@@ -1,0 +1,38 @@
+@media only screen and (min-width: 1140px) {
+
+}
+
+@media only screen and(max-width: 1139px) and (min-width: 960px) {
+
+}
+
+@media only screen and(max-width: 959px) and (min-width: 720px) {
+  .col-left{
+    display: none;
+  }
+  .col-right{
+    width: 100% !important;
+  }
+
+
+}
+
+@media only screen and(max-width: 719px) and (min-width: 540px) {
+  .col-left{
+    display: none;
+  }
+  .col-right{
+    width: 100% !important;
+  }
+
+}
+
+@media only screen and (max-width: 539px) {
+  .col-left{
+    display: none;
+  }
+  .col-right{
+    width: 100% !important;
+  }
+
+}

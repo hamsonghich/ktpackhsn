@@ -1,0 +1,41 @@
+<mat-accordion multi="true" #accordion="matAccordion" class="accordion-body">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="header-mother">
+      <mat-panel-title class="mat-panel-title">
+        <mat-icon>list</mat-icon>
+        <b>DANH MỤC</b></mat-panel-title>
+      <mat-panel-description></mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-nav-list>
+      <mat-list-item>
+        <a (click)="accordion.closeAll(); exit()" href="" routerLink="{{dataHeader[0].mother.link}}" routerLinkActive="$router_link-active$">{{dataHeader[0].mother.name}}</a>
+      </mat-list-item>
+      <mat-list-item>
+        <a (click)="accordion.closeAll(); exit()" href="" routerLink="{{dataHeader[1].mother.link}}" routerLinkActive="$router_link-active$">{{dataHeader[1].mother.name}}</a>
+      </mat-list-item>
+      <mat-accordion class="mat-table" *ngFor="let item of dataHeader| slice: 2: 6" >
+        <mat-expansion-panel [hideToggle]="item.child.length===0">
+          <mat-expansion-panel-header class="header-child">
+            <mat-panel-title><a href="" (click)="accordion.closeAll()" routerLink="{{item.mother.link}}" routerLinkActive="$router_link-active$">{{item.mother.name}} </a></mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-nav-list>
+            <mat-list-item *ngFor="let item1 of item.child">
+              <img src="https://img.icons8.com/material-outlined/24/ffffff/checkmark--v1.png"/>
+            <a (click)="accordion.closeAll(); exit()" href="" routerLink="/productType/{{item1.link}}" routerLinkActive="$router_link-active$">{{item1.name}}</a>
+            </mat-list-item>
+          </mat-nav-list>
+
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-list-item>
+        <a (click)="accordion.closeAll(); exit()" href="" routerLink="{{dataHeader[dataHeader.length - 2].mother.link}}" routerLinkActive="$router_link-active$">{{dataHeader[dataHeader.length - 2].mother.name}}</a>
+      </mat-list-item>
+      <mat-list-item>
+        <a (click)="accordion.closeAll(); exit()" href="" routerLink="{{dataHeader[dataHeader.length - 1].mother.link}}" routerLinkActive="$router_link-active$">{{dataHeader[dataHeader.length - 1].mother.name}}</a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-expansion-panel>
+</mat-accordion>
+
+

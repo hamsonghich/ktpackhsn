@@ -1,0 +1,97 @@
+@import './responsive.scss';
+
+h1,h2{
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  line-height: 23px;
+}
+.menuHeader{
+  height: 100%;
+  background-color: var(--primary-color);
+  cursor: pointer;
+  .linkMother{
+    position: absolute;top:0;left: 0;
+    width: 100%;height: 100%;
+  }
+  ul{
+    display: flex;flex-wrap: wrap;
+    list-style: none;height: 100%;
+
+    li{
+      width: auto;height: 50px;padding:0 20px;
+      font-family: hevatica-bold, sans-serif;
+      color: whitesmoke;
+      position: relative;display: flex;align-items: center;
+      a{
+        color: whitesmoke;text-decoration: none;
+      }
+      ul::before{
+        position: absolute;content: '';
+        width: 100%;height: 15px;
+        background: none;top:-5px;left: 0;
+      }
+      ul{
+        background-color: var(--primary1-color);
+        list-style: none;display: none;
+        position: absolute;top:52px;
+        height: auto;width: 300px;padding: 0 20px;
+        z-index: 10;transform: translateX(-20px);
+
+        li{
+          width: auto;height: auto;
+          padding: 10px 0;
+
+        }
+      }
+    }
+    li:hover{
+      background-image: var(--primary-linear);
+      //background-color: var(--primary1-color);
+      color: var(--black-color);transition: all 0.5s ease-in;
+      ul{
+        display: block;
+        animation: faceIn linear 0.5s;
+        border-radius: 5px;
+        li:last-child{
+          border-bottom: none;
+        }
+        li {
+          border-bottom: 1px solid var(--primary-color);
+          padding-left: 10px;
+          font-family: hevatica-regular, sans-serif;
+          padding-right:10px;
+        }
+        li:hover{
+          background-color: var(--primary-linear);
+          background-image: none;
+
+          a{
+            font-weight: bold;
+            transition: all 0.4s ease-in;
+            color: var(--black-color);
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@keyframes faceIn {
+  from{
+    opacity: 0;}
+  to{
+    opacity: 1;
+  }
+}
+@keyframes faceOut {
+  from{
+    opacity: 1;
+  }
+  to{
+    opacity: 0;
+  }
+}

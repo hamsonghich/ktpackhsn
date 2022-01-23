@@ -1,0 +1,49 @@
+
+<form action="" [formGroup]="formContentGioithieu">
+  <!--  <mat-form-field appearance="outline">-->
+  <!--    <mat-label>Param1</mat-label>-->
+  <!--    <textarea type="text" matInput formControlName="param1"></textarea>-->
+  <!--  </mat-form-field>-->
+  <!--  <mat-form-field appearance="outline">-->
+  <!--    <mat-label>Param2</mat-label>-->
+  <!--    <textarea type="text" matInput formControlName="param2"></textarea>-->
+  <!--  </mat-form-field>-->
+  <!--  <mat-form-field appearance="outline">-->
+  <!--    <mat-label>Param3</mat-label>-->
+  <!--    <textarea type="text" matInput formControlName="param3"></textarea>-->
+  <!--  </mat-form-field>-->
+  <!--  <mat-form-field appearance="outline">-->
+  <!--    <mat-label>Param4</mat-label>-->
+  <!--    <textarea type="text" matInput formControlName="param4"></textarea>-->
+  <!--  </mat-form-field>-->
+  <!--  <mat-form-field appearance="outline">-->
+  <!--    <mat-label>Param5</mat-label>-->
+  <!--    <textarea type="text" matInput formControlName="param5"></textarea>-->
+  <!--  </mat-form-field>-->
+  <!--  <mat-form-field appearance="outline">-->
+  <!--    <mat-label>imgLink</mat-label>-->
+  <!--    <textarea type="text" matInput formControlName="imgLink"></textarea>-->
+  <!--  </mat-form-field>-->
+  <span class="text-warning">** nameCompany</span>
+  <angular-editor placeholder="nameCompany" formControlName="nameCompany"></angular-editor>
+  <span class="text-warning">** nameTrust</span>
+  <angular-editor placeholder="nameTrust" formControlName="nameTrust"></angular-editor>
+  <span class="text-warning">** nameIntro</span>
+  <angular-editor placeholder="nameIntro" formControlName="nameIntro"></angular-editor>
+  <span class="text-warning">** historyCompany</span>
+  <angular-editor placeholder="historyCompany" formControlName="historyCompany"></angular-editor>
+  <span class="text-warning">** commitCompany</span>
+  <angular-editor placeholder="commitCompany" formControlName="commitCompany"></angular-editor>
+  <span class="text-warning">** adviseCompany</span>
+  <angular-editor placeholder="adviseCompany" formControlName="adviseCompany"></angular-editor>
+  <span class="text-warning">** imgLink</span>
+  <angular-editor placeholder="imgLink" formControlName="imgLink"></angular-editor>
+</form>
+
+<div style="margin-top: 10px;">
+  <button mat-raised-button color="accent" mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()" *ngIf="!isEdit" >Submit</button>
+  <button mat-raised-button color="warn" (click)="saveRowData()" *ngIf="isEdit" >Save</button>
+</div>
+
+

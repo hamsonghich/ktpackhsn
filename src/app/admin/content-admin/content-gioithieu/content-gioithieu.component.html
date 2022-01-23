@@ -1,0 +1,47 @@
+
+
+
+<div class="gioithieu">
+    <div class="container-fluid pm0">
+      <div class="title leftFlex"><i class="fas fa-blanket"></i><span>Giới thiệu</span></div>
+      <div class="content-child">
+        <div class="content-child__top">
+          <button mat-raised-button color="accent" (click)="openDialogContentGioithieu()">Tạo mới giới thiệu</button>
+          <button mat-raised-button color="warn" (click)="updateAllGioithieu(this.dataContentGioithieu)">Chỉnh sửa giới thiệu</button>
+        </div>
+        <div class="content-child__mid"  *ngIf="this.dataContentGioithieu">
+          <div class="param1 content_param">
+            <p class="text-warning">** Tên công ty</p>
+            <p [innerHTML]="dataContentGioithieu.nameCompany"></p>
+          </div>
+          <div class="param2 content_param">
+            <p class="text-warning">** Tiêu đề niềm tin</p>
+            <p [innerHTML]="dataContentGioithieu.nameTrust"></p>
+          </div>
+          <div class="content_param">
+            <p class="text-warning">** Thông tin công ty</p>
+            <p [innerHTML]="dataContentGioithieu.nameIntro"></p>
+          </div>
+          <div class="param3 content_param">
+            <p class="text-warning">** Lịch sử thành lập</p>
+            <p [innerHTML]="dataContentGioithieu.historyCompany"></p>
+          </div>
+          <div class="param4 content_param">
+            <p class="text-warning">** Cam kết</p>
+            <p [innerHTML]="dataContentGioithieu.commitCompany"></p>
+          </div>
+          <div class="param4 content_param">
+            <p class="text-warning">** Đường dẫn ảnh</p>
+            <img [src]="dataContentGioithieu.imgLink" alt="">
+          </div>
+          <div class="param4 content_param">
+            <p class="text-warning">** Dịch vụ công ty</p>
+            <p [innerHTML]="dataContentGioithieu.adviseCompany"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  

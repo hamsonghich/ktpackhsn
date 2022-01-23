@@ -1,0 +1,98 @@
+
+<div class="title leftFlex"><i class="fad fa-newspaper"></i><span>Trang chủ</span></div>
+<div class="container-fluid">
+  <div class=" buttonGroup">
+    <button (click)="openDialogContentTrangchu()" class="createBtn" mat-raised-button><i class="fad fa-plus-square"></i><span>Tạo mới</span></button>
+    <button (click)="updateAllTrangchu(this.dataContentTrangchu)" class="editBtn" mat-raised-button><i class="fad fa-edit"></i><span>Chỉnh sửa</span></button>
+  </div>
+
+  <div class="content1">
+    <p class="text-warning">Nội dung 1</p>
+    <div class="row row1">
+      <div class="col-left">
+        <div class="box-title">
+          <img src="./assets/Storage/Upload/banner/tinkhuyenmai.png" alt="">
+        </div>
+        <div class="box-content">
+          <div class="box-content__left">
+            <img src="" alt="">
+          </div>
+          <div class="box-content__right">
+            <a href="" routerLink="/tin-tuc"  [innerHTML]="linkTintucKhuyenmai[0]"></a>
+            <!--          <p class="details" [innerHTML]="dataServicesService.tintuc.param1"></p>-->
+          </div>
+        </div>
+        <div class="box-list" *ngIf="dataContentTrangchu">
+          <ul>
+            <li><i class="far fa-chevron-double-right"></i><a [href]="linkTintucKhuyenmai[1].link" target="_blank">{{linkTintucKhuyenmai[1].name}}</a></li>
+            <li><i class="far fa-chevron-double-right"></i><a [href]="linkTintucKhuyenmai[2].link" target="_blank">{{linkTintucKhuyenmai[2].name}}</a></li>
+            <li><i class="far fa-chevron-double-right"></i><a [href]="linkTintucKhuyenmai[3].link" target="_blank">{{linkTintucKhuyenmai[3].name}}</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-mid" *ngIf="dataContentTrangchu">
+        <div class="col-mid__slide">
+          <owl-carousel-o [options]="customOptionsMain">
+            <ng-container *ngFor="let slide of dataContentTrangchu.content1Img">
+              <ng-template carouselSlide>
+                <img [src]="slide.link" [alt]="slide.name" [title]="slide.name">
+              </ng-template>
+            </ng-container>
+          </owl-carousel-o>
+        </div>
+      </div>
+      <div class="col-right"  *ngIf="linkVideo">
+        <iframe width="100%" height="100%"
+                [src]="linkVideo" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="content2">
+    <p class="text-warning">Nội dung 2</p>
+    <div class="row row2" *ngIf="dataContentTrangchu">
+      <div class="header-title">
+        <div class="header-title__child1">
+          <p>Tin tức</p><i class="fas fa-caret-right"></i>
+        </div>
+        <marquee  fontweight="bold" behavior="scroll">
+          <p
+            style="font-weight: bold;text-transform: uppercase; color: rgba(0,0,0,0.8);margin-bottom: 0;"> {{dataContentTrangchu.content2Title.title2}}</p>
+        </marquee>
+        <div class="contact">
+          {{dataContentTrangchu.content2Title.title3}}
+        </div>
+      </div>
+      <div class="content-new">
+        <img [src]="dataContentTrangchu.content2Title.imgMain" alt="anh main">
+      </div>
+    </div>
+  </div>
+
+  <div class="content-khuyenmai" *ngIf="dataContentTrangchu">
+    <div class="content-khuyenmai__img">
+      <p class="title-product text-warning">Ảnh khuyến mãi thùng nhựa</p>
+      <img src="{{this.dataContentTrangchu.content3Title.imgLinkPromotion}}" alt="{{this.dataContentTrangchu.content3Title.title1}}">
+    </div>
+    <div class="content-khuyenmai__img">
+      <p class="text-warning">Ảnh khuyến mãi vách nhựa</p>
+      <img src="{{this.dataContentTrangchu.content4Title.imgLinkPromotion}}" alt="{{this.dataContentTrangchu.content4Title.title1}}">
+    </div>
+    <div class="content-khuyenmai__img">
+      <p class="text-warning">Ảnh khuyến mãi xốp pe foam eva</p>
+      <img src="{{this.dataContentTrangchu.content5Title.imgLinkPromotion}}" alt="{{this.dataContentTrangchu.content5Title.title1}}">
+    </div>
+    <div class="content-khuyenmai__img">
+      <p class="text-warning">Ảnh khuyến mãi xốp bóng khí</p>
+      <img src="{{this.dataContentTrangchu.content6Title.imgLinkPromotion}}" alt="{{this.dataContentTrangchu.content6Title.title1}}">
+    </div>
+
+  </div>
+
+</div>
+
+

@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <ul>
+    <li><b>Sản phẩm với nhiều màu sắc đa dạng có thể in Logo, in chữ, cài Card, tạo vách ngăn, nắp đậy theo yêu cầu Quý
+      khách hàng.</b></li>
+    <li><b>Với nhiều năm kinh nghiệm làm trong ngành sản xuất bao bì , thùng hộp cho nghành công nghiệp.</b></li>
+    <li><b>Công ty cổ phần sản xuất bao bì Quang Minh tự hào là một trong những đơn vị sản xuất các loại</b>
+      <ul>
+<!--        <li><u><a href=""  routerLink="/thungnhuadanpla">Thùng nhựa danpla thường</a></u></li>-->
+<!--        <li><u><a href="" routerLink="/vachnhuadanpla">Vách nhựa Danpla</a></u></li>-->
+<!--        <li><u><a href="" routerLink="/xopEvaPeFoam">Xốp EVA - Xốp PE FOAM</a></u></li>-->
+<!--        <li><u><a href="" routerLink="/xopbongkhi">Xốp bóng khí</a></u></li>-->
+        <li *ngFor="let item of dataServicesService.listHeader| slice:2:(lengthTypeProduct-2)"><u><a href="" routerLink="{{item.mother.link}}">{{item.mother.name}}</a></u></li>
+      </ul>
+    </li>
+    <li><b>Chúng tôi sẵn sàng tư vấn và thiết kế miễn phí cho khách hàng trong việc sử dụng thùng nhựa Danplacho việc chứa
+      , đựng , bảo quản và vận chuyển các mặt hàng nhằm tối ưu nhấtcông dụng của thùng Danpla và ngân sách của khách
+      hàng . Đáp ứng mọi yêu cầu kĩ thuật , kích cỡ ,chi tiết thêm , màu sắc sản phẩm.
+    </b></li>
+    <li><b> Thùng Danpla của {{dataServicesService.introduceCompany.nameCompany}} có ưu điểm là :</b>
+      <ul>
+        <li>Độ bền cao, tuổi thọ trung bình của một sản phẩm từ 1 – 1,5 năm;</li>
+        <li>Thiết kế thông minh giúp chống xước, chống xóc, tận dụng được nhiều khoảng trống, thuận tiện cho việc vận
+          chuyển;
+        </li>
+        <li>Có thiết kế chống tĩnh điện, phù hợp với các sản phẩm điện tử và linh kiện điện tử;</li>
+        <li> Giá thành hợp lý dựa vào lợi thế công ty sản xuất quy mô lớn , không qua công ty thương mại.</li>
+        <li>Trọng lượng nhẹ nhưng chắc chắn, có khả năng chống nước, chống phát sinh bụi;</li>
+        <li>Đa dạng màu sắc, kích thước, in logo và theo kích thước của khách hàng.</li>
+        <li> Có dịch vụ sửa thùng.</li>
+      </ul>
+    </li>
+    <li><b>
+      Qúy khách hàng quan tâm tới {{dataServicesService.introduceCompany.nameCompany}}, xin vui lòng liên hệ thông tin
+      về chúng tôi:</b>
+      <ul>
+        <li>{{dataServicesService.introduceCompany.nameCompany}}</li>
+        <li>{{dataServicesService.infoCompany.address}}</li>
+        <li>{{dataServicesService.infoCompany.phone[0]}} || {{dataServicesService.infoCompany.phone[1]}}</li>
+        <li>{{dataServicesService.infoCompany.email[0]}}</li>
+        <li>{{dataServicesService.infoCompany.email[1]}}</li>
+        <li><b>Rất hân hạnh phục vụ quý khách hàng !</b></li>
+      </ul>
+    </li>
+    <li>
+      <b>Sản phẩm HOT tương tự bạn sẽ cần:</b>
+<!--      {{filterList|json}}-->
+      <ul>
+        <li *ngFor="let item of filterList">
+          <a routerLink="{{item.link}}"
+             routerLinkActive="$router_link-active$">{{item.name}}</a>
+        </li>
+      </ul>
+
+    </li>
+  </ul>
+</div>
+

@@ -1,0 +1,23 @@
+
+<form action="" [formGroup]="formContentTintuc">
+  <span class="text-warning">** Param1</span>
+  <angular-editor placeholder="param1" formControlName="param1"></angular-editor>
+  <span class="text-warning">** Param2</span>
+  <angular-editor placeholder="param2" formControlName="param2"></angular-editor>
+  <span class="text-warning">** Param3</span>
+  <angular-editor placeholder="param3" formControlName="param3"></angular-editor>
+  <span class="text-warning">** Param4</span>
+  <angular-editor placeholder="param4" formControlName="param4"></angular-editor>
+  <span class="text-warning">** Param5</span>
+  <angular-editor placeholder="param5" formControlName="param5"></angular-editor>
+  <span class="text-warning">** Image link</span>
+  <angular-editor placeholder="imgLink" formControlName="imgLink"></angular-editor>
+</form>
+
+<div style="margin-top: 10px;">
+  <button mat-raised-button color="accent" mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()" *ngIf="!isEdit" >Submit</button>
+  <button mat-raised-button color="warn" (click)="saveRowData()" *ngIf="isEdit" >Save</button>
+</div>
+
+

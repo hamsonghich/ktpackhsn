@@ -1,0 +1,23 @@
+
+<form action="" [formGroup]="formContentLienhe">
+  <span class="text-warning">** mapLink</span>
+  <angular-editor placeholder="mapLink" formControlName="mapLink"></angular-editor>
+  <span class="text-warning">** nameCompany</span>
+  <angular-editor placeholder="nameCompany" formControlName="nameCompany"></angular-editor>
+  <span class="text-warning">** trustTitle</span>
+  <angular-editor placeholder="trustTitle" formControlName="trustTitle"></angular-editor>
+  <span class="text-warning">** phoneNumber</span>
+  <angular-editor placeholder="phoneNumber" formControlName="phoneNumber"></angular-editor>
+  <span class="text-warning">** email</span>
+  <angular-editor placeholder="email" formControlName="email"></angular-editor>
+  <span class="text-warning">** addressCompany</span>
+  <angular-editor placeholder="addressCompany" formControlName="addressCompany"></angular-editor>
+</form>
+
+<div style="margin-top: 10px;">
+  <button mat-raised-button color="accent" mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()" *ngIf="!isEdit" >Submit</button>
+  <button mat-raised-button color="warn" (click)="saveRowData()" *ngIf="isEdit" >Save</button>
+</div>
+
+

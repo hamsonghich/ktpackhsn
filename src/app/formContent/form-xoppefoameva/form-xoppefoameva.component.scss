@@ -1,0 +1,25 @@
+.formContent{
+  display: flex;justify-content: flex-start;
+  flex-wrap: wrap;
+
+  ::ng-deep mat-form-field{
+    margin-right: 5px;
+    margin-top: 5px;
+  }
+  button{
+    margin: 5px 5px 5px 0;
+  }
+  .contentItem.img, .contentItem.description{
+    //border-top: 1px solid gray;
+    //border-bottom: 1px solid gray;
+    border: 1px solid var(--primary-color);
+    width: 100%;border-radius: 5px;
+    padding: 10px 5px;
+  }
+}
+.groupBtn{
+  button{
+    margin: 5px 5px 5px 0;
+  }
+}
+

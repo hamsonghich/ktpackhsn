@@ -1,0 +1,128 @@
+@import "responsive.scss";
+
+.mainContentContact {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+
+  .titleMainContact {
+    margin-top: 30px;
+    font-family: foro, serif;
+    font-weight: bold;
+    font-size: 222%;
+    text-align: center;
+  }
+
+  .desMainContact {
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    font-weight: bold;
+    color: var(--bs-danger);
+    font-size: 110%;
+  }
+
+  .rowMainContact {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+    .colMainContact {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: 220px;
+      font-family: foro !important;
+      align-items: center;
+
+      .img-container {
+        width: 60px;
+        height: 60px;
+        background-color: #9f0011;
+        border-radius: 50%;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        i {
+          font-size: 150%;
+          color: white;
+          animation: animationRotate 2s infinite;
+        }
+      }
+
+      .titleColMainContact {
+        font-family: foro;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      .contentColMainContact {
+        text-align: center;
+        margin: 0;
+        font-family: 'Open Sans', sans-serif;
+        color: var(--bs-primary);
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.row3 {
+  height: auto;
+  background-color: #CFEFFE; margin-left: 0!important;
+  margin-right: 0!important;
+  .row{
+
+    .form-content-left{
+      width: 50%;
+    }
+    .form-content-right{
+      width: 50%;
+    }
+  }
+  .form-group {
+    margin: 20px 0;
+
+    mat-form-field {
+      width: 80%;
+      margin-left: 5%;
+    }
+    .notification{
+      width: 80%;
+      margin-left: 5%;
+      color: var(--bs-danger);
+      font-size: 90%;
+    }
+
+  }
+  button{
+    width: 200px;
+    margin-left: calc(50% - 100px);
+    font-weight: bold;
+  }
+  ::ng-deep .mat-form-field-outline.ng-star-inserted{
+    background-color: white!important;
+    border-radius: 5px;
+  }
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick{
+    color: var(--primary1-color);
+  }
+}
+.row31{
+  margin-bottom: 20px;
+}
+
+@keyframes animationRotate {
+  0% {
+    transform: rotate(0)
+  }
+  50% {
+    transform: rotate(30deg)
+  }
+  100% {
+    transform: rotate(0)
+  }
+}
