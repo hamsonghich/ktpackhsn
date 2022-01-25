@@ -102,7 +102,18 @@ ul,li{
 .mat-form-field-wrapper{
   padding-bottom: 0;
 }
-
+.btnCustomForm{
+  font-family: hevatica-regular, sans-serif;
+  font-weight: 100;  font-size: 85%;
+  background-image: linear-gradient(to bottom, #2b5876, #4e4376);
+  margin-right: 10px;
+  i{
+    margin-right: 5px;color: whitesmoke;
+  }
+  span{
+    color: whitesmoke;
+  }
+}
 @keyframes rotageCircle {
   0%{transform: rotate(0deg); color: var(--bs-danger)}
   75%{transform: rotate(60deg); color: var(--primary-color)}

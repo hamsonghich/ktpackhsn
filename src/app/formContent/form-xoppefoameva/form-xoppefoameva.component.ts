@@ -19,7 +19,8 @@ export class FormXoppefoamevaComponent implements OnInit {
       this.typeXoppefoameva = res.xoppefoameva;
     });
     this.formContentXopPeFoamEva = this.fb.group({
-      addCart: ['false'],
+      addCart: [false],
+      checkBox: [false],
       typeName: this.fb.group({
         name: ['', [Validators.required]],
         id: ['xoppefoameva'],

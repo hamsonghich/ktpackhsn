@@ -16,10 +16,10 @@ export class MoreProductComponent implements OnInit {
   ngOnInit(): void {
     this.firebaseService.getdata().then(res => {
       this.dataItemProductTotal = res;
+      for (let i = 0; i < this.dataItemProductTotal.length; i++){
+        this.arrFirstPage[i] = 1;
+      }
     });
-    for (let i = 0; i < this.dataServicesService.dataProductDetailsList.length; i++){
-      this.arrFirstPage[i] = 1;
-    }
   }
   public exit(): any {
     // setTimeout(() => {

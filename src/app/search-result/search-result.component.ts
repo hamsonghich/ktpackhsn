@@ -1,6 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {DataServicesService} from '../services/data-services.service';
 import {Router} from '@angular/router';
+import {FirebaseServiceService} from '../services/firebase-service.service';
 
 @Component({
   selector: 'app-search-result',
@@ -8,6 +9,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./search-result.component.scss']
 })
 export class SearchResultComponent implements OnInit {
+  public imgArr: any[] = [];
   page = 1;
   public itemOfPageArr = [8, 12, 16, 20, 24];
   public priceSortArr = [
@@ -18,17 +20,17 @@ export class SearchResultComponent implements OnInit {
   public choosePriceSortArr = this.dataServicesService.currentNameSubject$.getValue();
   public dataSearchMatch = this.dataServicesService.currentNameSubject$.getValue();
 
-  constructor(public dataServicesService: DataServicesService, public router: Router) {
+  constructor(public dataServicesService: DataServicesService, public router: Router, public firebaseService: FirebaseServiceService) {
     this.dataServicesService.checkUrlAdmin = this.dataServicesService.checkUrl();
   }
 
   ngOnInit(): void {
-    this.dataServicesService.currentNameSubject$.getValue().forEach((item: any) => {
-      // console.log('da convert');
-      // const data1 = JSON.parse(JSON.stringify(item));
+    this.firebaseService.readFunctionalityObject('/trangchu').subscribe((res: { content3Title: any; content4Title: any; content5Title: any; content6Title: any; }) => {
+      this.imgArr.push(res.content3Title);
+      this.imgArr.push(res.content4Title);
+      this.imgArr.push(res.content5Title);
+      this.imgArr.push(res.content6Title);
     });
-    // console.log('iiii');
-    // console.log(this.dataServicesService.currentNameSubject$.getValue());
   }
 
   public sortBestSales(): any {

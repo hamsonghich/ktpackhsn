@@ -8,17 +8,17 @@
         </mat-form-field>
         <div class="box-socialList">
          <ul>
-             <li title="facebook"><a href=""><i class="fab fa-facebook-f" alt="facebook" title="facebook"></i></a></li>
-             <li title="twitter"><a href=""><i class="fab fa-twitter" title="twitter"></i></a></li>
-             <li title="youtube"><a href=""><i class="fab fa-youtube"></i></a></li>
-             <li title="google"><a href=""><i class="fab fa-google"></i></a></li>
-             <li title="zalo"><a href=""><i class="fas fa-comment-alt"></i></a></li>
+             <li title="facebook"><a rel="canonical" href=""><i class="fab fa-facebook-f" alt="facebook" title="facebook"></i></a></li>
+             <li title="twitter"><a rel="canonical" href=""><i class="fab fa-twitter" title="twitter"></i></a></li>
+             <li title="youtube"><a  rel="canonical" href=""><i class="fab fa-youtube"></i></a></li>
+             <li title="google"><a rel="canonical" href=""><i class="fab fa-google"></i></a></li>
+             <li title="zalo"><a rel="canonical" href=""><i class="fas fa-comment-alt"></i></a></li>
            </ul>
         </div>
         <div class="productList">
           <h4 class="titleProductList">Sản phẩm</h4>
           <ul>
-            <li *ngFor="let item of dataServicesService.listProduct"><a href="" routerLink={{item.mother.link}}
+            <li *ngFor="let item of dataServicesService.listProduct"><a rel="canonical" href="" routerLink={{item.mother.link}}
                                                                         routerLinkActive="$router_link-active$">{{item.mother.name}}</a></li>
           </ul>
         </div>
@@ -36,7 +36,7 @@
             <li *ngFor="let item of dataServicesService.infoCompanyList">
               <h5>{{item.mother.name}}</h5>
               <ul class="item_col">
-                <li *ngFor="let item1 of item.child"><a href="" routerLink=""
+                <li *ngFor="let item1 of item.child"><a rel="canonical" href="" routerLink=""
                                                         routerLinkActive="$router_link-active$">{{item1.name}}</a>
                   <img src="{{item1.link}}" alt=""></li>
               </ul>
@@ -69,4 +69,3 @@
        <div class="phoneFix"></div>
      </div>
    </div>
-   

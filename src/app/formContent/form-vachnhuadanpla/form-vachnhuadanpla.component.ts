@@ -20,7 +20,8 @@ export class FormVachnhuadanplaComponent implements OnInit {
       this.typeVachnhuadanpla = res.vachnhuadanpla;
     });
     this.formContentVachnhuadanpla = this.fb.group({
-      addCart: ['false'],
+      addCart: [false],
+      checkBox: [false],
       typeName: this.fb.group({
         name: ['', [Validators.required]],
         id: ['vach'],

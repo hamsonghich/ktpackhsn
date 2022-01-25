@@ -1,8 +1,8 @@
 @import "responsive.scss";
 .container-fluid{
+  font-family: hevatica-regular, sans-serif!important;
   .row1{
     margin-top: 15px;
-    font-family: hevatica-regular, sans-serif;
     .col-left{
       width: 25%;
       padding: 0;
@@ -215,7 +215,6 @@
           text-align: center;
           color: var(--bs-danger);
           font-weight: bold;
-          font-family: hevatica-regular, sans-serif;
           text-transform: uppercase;
           font-size: 110%;
         }
@@ -226,7 +225,7 @@
             padding: 8px 0;
             border-bottom: 1px dotted #CCC;
             .content-selling{
-              display: flex;
+              display: flex; cursor: pointer;
               .content-selling__left{
                 width: 90px;
                 height: 90px;
@@ -246,17 +245,15 @@
                 margin-right: 15px;
 
                 a{
-                  font-weight: bold;
-                  font-family: hevatica-regular, sans-serif;
-                  color: #004eb0;
                   text-decoration: none;
-                  cursor: pointer;
                   margin-bottom: 5px;
+                  color: #007bff;
+                  h3{
+                    all: unset;
+                  }
                 }
                 p{
-                  color: red;
-                  font-weight: bold;
-                  font-family: hevatica-regular, sans-serif;
+                  color: #ee4d2d;
                 }
               }
             }
@@ -275,7 +272,6 @@
          text-transform: uppercase;
           font-weight: bold;
           color: var(--bs-danger);
-          font-family: hevatica-regular, sans-serif;
           font-size: 110%;
         }
         .col-mid__slide{
@@ -303,7 +299,6 @@
 
             .content-item{
               border-radius: 5px;
-              font-family: hevatica-regular, sans-serif;
               padding:10px;
               width: 90%;
               border: 1px solid #cccccc;
@@ -329,6 +324,9 @@
                   -webkit-line-clamp: 2;
                   line-height: 1.6rem;
                   text-decoration: none;
+                  h3{
+                    all: unset;
+                  }
                 }
                 .priceProduct {
                   display: flex;
@@ -387,7 +385,6 @@
         width: calc(100% - 22% - 60%);
         .title-header2{
           text-transform: uppercase;
-          font-family: hevatica-regular, sans-serif;
           font-weight: bold;
           color: red;
           font-size: 100%;

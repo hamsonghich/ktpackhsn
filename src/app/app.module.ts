@@ -78,6 +78,8 @@ import {ContentTieudeMainComponent} from './admin/content-admin/content-tieude-m
 import { FormHeaderComponent } from './formContent/form-header/form-header.component';
 import { ContentSocialComponent } from './admin/content-admin/content-social/content-social.component';
 import { FormSocialComponent } from './formContent/form-social/form-social.component';
+import { ContentAccountComponent } from './admin/content-admin/content-account/content-account.component';
+import { FormAccountComponent } from './formContent/form-account/form-account.component';
 
 
 @NgModule({
@@ -130,7 +132,9 @@ import { FormSocialComponent } from './formContent/form-social/form-social.compo
     ContentTieudeMainComponent,
     FormHeaderComponent,
     ContentSocialComponent,
-    FormSocialComponent
+    FormSocialComponent,
+    ContentAccountComponent,
+    FormAccountComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'companyktpack'}),

@@ -23,6 +23,7 @@
     ul{
       padding:0!important;
       list-style: none;
+      margin-bottom: 0!important;
       li{
         height: 50px;
         border-top: 1px solid var(--bg-gray);
@@ -42,6 +43,9 @@
     ::ng-deep mat-accordion{
       .mat-expansion-panel-spacing {
         margin: 0!important;
+      }
+      ul{
+        margin-bottom: 0!important;
       }
       padding: 0!important;
       mat-expansion-panel{

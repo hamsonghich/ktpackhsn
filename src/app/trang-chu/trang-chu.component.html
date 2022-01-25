@@ -17,17 +17,17 @@
           <img src="" alt="">
         </div>
         <div class="box-content__right">
-          <a href="" routerLink="/tin-tuc" [innerHTML]="linkTintucKhuyenmai[0]"></a>
+          <a rel="canonical" href="" routerLink="/tin-tuc" [innerHTML]="linkTintucKhuyenmai[0]"></a>
           <!--          <p class="details" [innerHTML]="dataServicesService.tintuc.param1"></p>-->
         </div>
       </div>
       <div class="box-list" *ngIf="dataContentTrangchu">
         <ul>
-          <li><i class="far fa-chevron-double-right"></i><a [href]="linkTintucKhuyenmai[1].link"
+          <li><i class="far fa-chevron-double-right"></i><a rel="canonical" [href]="linkTintucKhuyenmai[1].link"
                                                             target="_blank">{{linkTintucKhuyenmai[1].name}}</a></li>
-          <li><i class="far fa-chevron-double-right"></i><a [href]="linkTintucKhuyenmai[2].link"
+          <li><i class="far fa-chevron-double-right"></i><a rel="canonical" [href]="linkTintucKhuyenmai[2].link"
                                                             target="_blank">{{linkTintucKhuyenmai[2].name}}</a></li>
-          <li><i class="far fa-chevron-double-right"></i><a [href]="linkTintucKhuyenmai[3].link"
+          <li><i class="far fa-chevron-double-right"></i><a rel="canonical" [href]="linkTintucKhuyenmai[3].link"
                                                             target="_blank">{{linkTintucKhuyenmai[3].name}}</a></li>
         </ul>
       </div>
@@ -88,14 +88,14 @@
     <div class="title-header">
       <div class="face1">
         <div class="centerFlex">
-          <a class="title-link" href=""
+          <a rel="canonical" class="title-link" href=""
              routerLink="{{dataHeader[2].mother.link}}">{{dataHeader[2].mother.name}}</a>
           <i class="fas fa-caret-right"></i>
         </div>
 
         <marquee behavior="scroll">
           <div class="list-item">
-            <a *ngFor="let item of dataHeader[2].child" style="font-style:italic;" href=""
+            <a rel="canonical" *ngFor="let item of dataHeader[2].child" style="font-style:italic;" href=""
                routerLink="/productType/{{item.link}}">
               {{item.name}}&nbsp; || &nbsp;
             </a>
@@ -115,7 +115,7 @@
                 <img src="{{item.img[0].link}}" alt="{{item.img[0].name}}">
               </div>
               <div class="content-selling__right">
-                <a routerLink="/productDetails/{{item.id.link}}">{{item.id.name}}</a>
+                <a rel="canonical"><h3>{{item.id.name}}</h3></a>
                 <p>Địa chỉ:{{item.address.name}}</p>
               </div>
             </div>
@@ -134,7 +134,7 @@
                     <img [src]="slide.img[0].link" [alt]="slide.img[0].name" [title]="slide.img[0].name">
                   </div>
                   <div class="content-item__info">
-                    <a class="link-details" routerLink="/productDetails/{{slide.id.link}}">{{slide.id.name}}</a>
+                    <a rel="canonical" class="link-details" routerLink="/productDetails/{{slide.id.link}}"><h3>{{slide.id.name}}</h3></a>
                     <div class="priceProduct">
                       <div>
                         <span>Giá: </span><span>{{slide.price.name}}</span>
@@ -198,14 +198,14 @@
     <div class="title-header">
       <div class="face1">
         <div class="centerFlex">
-          <a class="title-link" href=""
+          <a rel="canonical" class="title-link" href=""
              routerLink="{{dataHeader[3].mother.link}}">{{dataHeader[3].mother.name}}</a>
           <i class="fas fa-caret-right"></i>
         </div>
 
         <marquee behavior="scroll">
           <div class="list-item">
-            <a *ngFor="let item of dataHeader[3].child" style="font-style:italic;" href=""
+            <a rel="canonical" *ngFor="let item of dataHeader[3].child" style="font-style:italic;" href=""
                routerLink="/productType/{{item.link}}">
               {{item.name}}&nbsp; || &nbsp;
             </a>
@@ -228,7 +228,7 @@
                 <img src="{{item.img[0].link}}" alt="{{item.img[0].name}}">
               </div>
               <div class="content-selling__right">
-                <a routerLink="/productDetails/{{item.id.link}}">{{item.id.name}}</a>
+                <a rel="canonical"><h3>{{item.id.name}}</h3></a>
                 <p>Địa chỉ:{{item.address.name}}</p>
               </div>
             </div>
@@ -246,7 +246,7 @@
                     <img [src]="slide.img[0].link" [alt]="slide.img[0].name" [title]="slide.img[0].name">
                   </div>
                   <div class="content-item__info">
-                    <a class="link-details" routerLink="/productDetails/{{slide.id.link}}">{{slide.id.name}}</a>
+                    <a rel="canonical" class="link-details" routerLink="/productDetails/{{slide.id.link}}"><h3>{{slide.id.name}}</h3></a>
                     <div class="priceProduct">
                       <div>
                         <span>Giá: </span><span>{{slide.price.name}}</span>
@@ -310,7 +310,7 @@
     <div class="title-header">
       <div class="face1">
         <div class="centerFlex">
-          <a class="title-link" href=""
+          <a rel="canonical" class="title-link" href=""
              routerLink="{{dataHeader[4].mother.link}}">{{dataHeader[4].mother.name}}</a>
           <i class="fas fa-caret-right"></i>
         </div>
@@ -318,7 +318,7 @@
 
         <marquee behavior="scroll">
           <div class="list-item">
-            <a *ngFor="let item of dataHeader[4].child" style="font-style:italic;" href=""
+            <a rel="canonical" *ngFor="let item of dataHeader[4].child" style="font-style:italic;" href=""
                routerLink="/productType/{{item.link}}">
               {{item.name}}&nbsp; || &nbsp;
             </a>
@@ -341,7 +341,7 @@
                 <img src="{{item.img[0].link}}" alt="{{item.img[0].name}}">
               </div>
               <div class="content-selling__right">
-                <a routerLink="/productDetails/{{item.id.link}}">{{item.id.name}}</a>
+                <a rel="canonical"><h3>{{item.id.name}}</h3></a>
                 <p>Địa chỉ:{{item.address.name}}</p>
               </div>
             </div>
@@ -359,7 +359,7 @@
                     <img [src]="slide.img[0].link" [alt]="slide.img[0].name" [title]="slide.img[0].name">
                   </div>
                   <div class="content-item__info">
-                    <a class="link-details" routerLink="/productDetails/{{slide.id.link}}">{{slide.id.name}}</a>
+                    <a rel="canonical" class="link-details" routerLink="/productDetails/{{slide.id.link}}"><h3>{{slide.id.name}}</h3></a>
                     <div class="priceProduct">
                       <div>
                         <span>Giá: </span><span>{{slide.price.name}}</span>
@@ -423,14 +423,14 @@
     <div class="title-header">
       <div class="face1">
         <div class="centerFlex">
-          <a class="title-link" href=""
+          <a rel="canonical" class="title-link" href=""
              routerLink="{{dataHeader[5].mother.link}}">{{dataHeader[5].mother.name}}</a>
           <i class="fas fa-caret-right"></i>
         </div>
 
         <marquee behavior="scroll">
           <div class="list-item">
-            <a *ngFor="let item of dataHeader[5].child" style="font-style:italic;" href=""
+            <a rel="canonical" *ngFor="let item of dataHeader[5].child" style="font-style:italic;" href=""
                routerLink="/productType/{{item.link}}">
               {{item.name}}&nbsp; || &nbsp;
             </a>
@@ -453,7 +453,7 @@
                 <img src="{{item.img[0].link}}" alt="{{item.img[0].name}}">
               </div>
               <div class="content-selling__right">
-                <a routerLink="/productDetails/{{item.id.link}}">{{item.id.name}}</a>
+                <a rel="canonical"><h3>{{item.id.name}}</h3></a>
                 <p>Địa chỉ:{{item.address.name}}</p>
               </div>
             </div>
@@ -471,7 +471,7 @@
                     <img [src]="slide.img[0].link" [alt]="slide.img[0].name" [title]="slide.img[0].name">
                   </div>
                   <div class="content-item__info">
-                    <a class="link-details" routerLink="/productDetails/{{slide.id.link}}">{{slide.id.name}}</a>
+                    <a rel="canonical" class="link-details" routerLink="/productDetails/{{slide.id.link}}"><h3>{{slide.id.name}}</h3></a>
                     <div class="priceProduct">
                       <div>
                         <span>Giá: </span><span>{{slide.price.name}}</span>

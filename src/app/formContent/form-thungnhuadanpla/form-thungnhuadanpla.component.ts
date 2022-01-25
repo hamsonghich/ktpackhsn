@@ -19,7 +19,8 @@ export class FormThungnhuadanplaComponent implements OnInit {
       this.typeThungdanpla = res.thungnhuadanpla;
     });
     this.formContentThungnhuadanpla = this.fb.group({
-      addCart: ['false'],
+      addCart: [false],
+      checkBox: [false],
       typeName: this.fb.group({
         name: ['', [Validators.required]],
         id: ['thung'],

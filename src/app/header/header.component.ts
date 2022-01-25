@@ -154,7 +154,7 @@ export class HeaderComponent implements OnInit {
 
   public login(): any{
     this.dialog.open(FormLoginComponent, {
-      height: '450px', width: '350px'
+      height: '400px', width: '350px'
     });
   }
   public getDataSocial(): any{

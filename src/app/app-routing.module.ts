@@ -17,10 +17,10 @@ import {SearchResultComponent} from './search-result/search-result.component';
 import {HeaderComponent} from './header/header.component';
 import {DataJsonServerService} from './services/data-json-server.service';
 import {CartComponent} from './cart/cart.component';
-
+import {AuthGuard} from './auth.guard';
 
 const routes: Routes = [
-  {path: 'admin', component: AdminComponent},
+  {path: 'admin',  canActivate: [AuthGuard], component: AdminComponent},
   {path: 'trang-chu', component: TrangChuComponent},
   {path: 'thung-nhua-danpla', component: ThungnhuaDanplaComponent},
   {path: 'vach-nhua-danpla', component: VachnhuaDanplaComponent},

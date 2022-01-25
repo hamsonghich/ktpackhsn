@@ -21,6 +21,7 @@ export class AdminComponent implements OnInit {
     {name: 'trangchu', value: true},
     {name: 'tieudeMain', value: true},
     {name: 'social', value: true},
+    {name: 'account', value: true},
   ];
 
   // tslint:disable-next-line:max-line-length

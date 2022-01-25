@@ -245,6 +245,9 @@
                   -webkit-box-orient: vertical;
                   white-space: normal;  transition:all 0.35s ease-in;
                   -webkit-line-clamp: 2;
+                  h3{
+                    all: unset;
+                  }
                 }
                 .contentProduct:hover{
                   font-weight: 500;

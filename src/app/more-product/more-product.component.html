@@ -20,8 +20,8 @@
           </div>
           <div class="contentTotal">
             <div class="contentProduct">
-              <a routerLink='/productDetails/{{item.id.link}}' (click)="exit()"
-                 routerLinkActive="active">{{item.id.name}}</a>
+              <a rel="canonical" routerLink='/productDetails/{{item.id.link}}' (click)="exit()"
+                 routerLinkActive="active"><h3>{{item.id.name}}</h3></a>
             </div>
             <div class="priceProduct">
               <div>

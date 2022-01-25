@@ -7,8 +7,8 @@
     <div class="col-left">
       <app-side-bar-left></app-side-bar-left>
       <div class="banner-sales">
-        <a href="">
-          <img src="{{dataServicesService.productSale[0].link}}" alt="{{dataServicesService.productSale[0].name}}">
+        <a  *ngFor="let item of this.imgArr| slice: 0: 1">
+          <img src="{{item.imgLinkPromotion}}" alt="{{item.title1}}">
         </a>
       </div>
     </div>
@@ -76,7 +76,7 @@
                 </div>
               </div>
               <div class="contentTotal">
-                <div class="contentProduct" routerLink="/productDetails/{{item.id.link}}">{{item.id.name}}</div>
+                <div class="contentProduct"  routerLink="/productDetails/{{item.id.link}}"><h3>{{item.id.name}}</h3></div>
                 <div class="priceProduct">
                   <div>
                     <span>Giá: </span><span>{{item.price.name}}</span>

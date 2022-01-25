@@ -19,7 +19,8 @@ export class FormXopbongkhiComponent implements OnInit {
       this.typeXopbongkhi = res.xopbongkhi;
     });
     this.formContentXopbongkhi = this.fb.group({
-      addCart: ['false'],
+      addCart: [false],
+      checkBox: [false],
       typeName: this.fb.group({
         name: ['', [Validators.required]],
         id: ['xopbongkhi'],

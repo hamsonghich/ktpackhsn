@@ -30,31 +30,34 @@
       <div class="product-heading">
         <ul>
           <li>
-            <mat-checkbox [(ngModel)]="choose" (ngModelChange)="this.dataServicesService.checkBoxALL(choose)"
-                          (click)=checkbox2() class="checkTotal"></mat-checkbox>
+            <mat-checkbox [(ngModel)]="choose" (ngModelChange)="this.checkBoxALL(choose)"
+                       class="checkTotal"></mat-checkbox>
+            <!-- <div>{{choose}}</div> -->
             <span>Tất cả ({{dataCartSale.length}} sản phẩm)</span></li>
           <li><span>Đơn giá</span></li>
           <li><span>Số lượng</span></li>
           <li><span>Thành tiền</span></li>
           <li>
-            <button (click)="dataServicesService.deleteAllItemCart();checkbox2()"><i class="far fa-trash-alt"></i>
+            <button (click)="dataServicesService.deleteAllItemCart()"><i class="far fa-trash-alt"></i>
             </button>
           </li>
         </ul>
       </div>
       <div class="product-content">
         <ul>
-          <li *ngFor="let item of dataServicesService.dataCart1; let i = index">
+          <li *ngFor="let item of dataServicesService.dataCartUnique; let i = index">
             <div class="content-main">
               <div class="checkboxItem">
-                <mat-checkbox (click)="checkbox2()" (ngModelChange)="this.dataServicesService.checkBoxItem1(i)"
-                              [(ngModel)]="this.dataServicesService.dataCart1[i].checkBoxItem"></mat-checkbox>
+                <mat-checkbox (click)="testDataCheckbox()"
+                          [(ngModel)]="item.checkBox"
+                ></mat-checkbox>
+                <!-- <div>{{item.checkBox}}</div> -->
               </div>
               <div class="content-img">
                 <img src="{{item.img[0].link}}" alt="">
               </div>
               <div class="content-text">
-                <a routerLink="/productDetails/{{item.id.link}}"
+                <a rel="canonical" routerLink="/productDetails/{{item.id.link}}"
                    routerLinkActive="$routerLinkActive">{{item.id.name}}</a>
               </div>
             </div>
@@ -71,7 +74,7 @@
               <span>{{item.quantity}}*{{item.price.name}}</span>
             </div>
             <div class="garbage">
-              <button (click)="this.dataServicesService.deleteItemCard(i);checkBox1()"><i class="far fa-trash-alt"></i>
+              <button><i class="far fa-trash-alt"></i>
               </button>
             </div>
           </li>
@@ -99,38 +102,16 @@
             <td><p style="font-size: 80%;">(Đã bao gồm VAT nếu có)</p></td>
           </tr>
         </table>
-        <button *ngIf="dataCartSale.length===0" type="button"  class="chooseSale">Bạn chưa chọn sản phẩm nào!</button>
-        <button *ngIf="dataCartSale.length!==0" type="button" (click)="openDialog()" id="chooseSale" class="chooseSale">Mua Hàng ({{dataCartSale.length}})</button>
+        <button *ngIf="dataCartSale.length===0" type="button"  class="chooseSale">Bạn chưa chọn sản phẩm nào !</button>
+        <button *ngIf="dataCartSale.length!==0" type="button" (click)="openDialog();" id="chooseSale" class="chooseSale">Mua Hàng ({{dataCartSale.length}})</button>
 
       </div>
     </div>
   </div>
 
   <div class="row row3">
-<!--    {{dataServicesService.dataInfoCustomer|json}}-->
-<!--    {{dataServicesService.dataCart1[0].id.name}}-->
   </div>
 
 </div>
 
-  <!--<div class="">-->
-  <!--  <ul>-->
-  <!--    <li *ngFor="let item of dataServicesService.dataCart1">{{item.id.link}}||{{item.checkBoxItem}}</li>-->
-  <!--  </ul>-->
-  <!--</div>-->
-  <!--<div>&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</div>-->
-  <!--<div>{{choose}}</div>-->
-  <!--<div class="">-->
-  <!--  <ul>-->
-  <!--    <li *ngFor="let item of dataCartSale">{{item.id.name}}||{{item.checkBoxItem}}</li>-->
-  <!--  </ul>-->
-  <!--</div>-->
-
-<div class="toast-notification" style="display: none">
-  <div class="content-toast">
-    <span class="borderLeft"></span>
-    <i class="fal fa-shield-check"></i>
-    <span class="text">Đơn hàng đã được xử lí !</span>
-  </div>
-</div>
-  <app-footer-main></app-footer-main>
+<app-footer-main></app-footer-main>

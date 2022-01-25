@@ -9,30 +9,30 @@
 
     <mat-nav-list>
       <mat-list-item>
-        <a (click)="accordion.closeAll(); exit()" href="" routerLink="{{dataHeader[0].mother.link}}" routerLinkActive="$router_link-active$">{{dataHeader[0].mother.name}}</a>
+        <a rel="canonical" (click)="accordion.closeAll(); exit()" href="" routerLink="{{dataHeader[0].mother.link}}" routerLinkActive="$router_link-active$">{{dataHeader[0].mother.name}}</a>
       </mat-list-item>
       <mat-list-item>
-        <a (click)="accordion.closeAll(); exit()" href="" routerLink="{{dataHeader[1].mother.link}}" routerLinkActive="$router_link-active$">{{dataHeader[1].mother.name}}</a>
+        <a rel="canonical" (click)="accordion.closeAll(); exit()" href="" routerLink="{{dataHeader[1].mother.link}}" routerLinkActive="$router_link-active$">{{dataHeader[1].mother.name}}</a>
       </mat-list-item>
       <mat-accordion class="mat-table" *ngFor="let item of dataHeader| slice: 2: 6" >
         <mat-expansion-panel [hideToggle]="item.child.length===0">
           <mat-expansion-panel-header class="header-child">
-            <mat-panel-title><a href="" (click)="accordion.closeAll()" routerLink="{{item.mother.link}}" routerLinkActive="$router_link-active$">{{item.mother.name}} </a></mat-panel-title>
+            <mat-panel-title><a rel="canonical" href="" (click)="accordion.closeAll()" routerLink="{{item.mother.link}}" routerLinkActive="$router_link-active$">{{item.mother.name}} </a></mat-panel-title>
           </mat-expansion-panel-header>
           <mat-nav-list>
             <mat-list-item *ngFor="let item1 of item.child">
               <img src="https://img.icons8.com/material-outlined/24/ffffff/checkmark--v1.png"/>
-            <a (click)="accordion.closeAll(); exit()" href="" routerLink="/productType/{{item1.link}}" routerLinkActive="$router_link-active$">{{item1.name}}</a>
+            <a rel="canonical" (click)="accordion.closeAll(); exit()" href="" routerLink="/productType/{{item1.link}}" routerLinkActive="$router_link-active$">{{item1.name}}</a>
             </mat-list-item>
           </mat-nav-list>
 
         </mat-expansion-panel>
       </mat-accordion>
       <mat-list-item>
-        <a (click)="accordion.closeAll(); exit()" href="" routerLink="{{dataHeader[dataHeader.length - 2].mother.link}}" routerLinkActive="$router_link-active$">{{dataHeader[dataHeader.length - 2].mother.name}}</a>
+        <a rel="canonical" (click)="accordion.closeAll(); exit()" href="" routerLink="{{dataHeader[dataHeader.length - 2].mother.link}}" routerLinkActive="$router_link-active$">{{dataHeader[dataHeader.length - 2].mother.name}}</a>
       </mat-list-item>
       <mat-list-item>
-        <a (click)="accordion.closeAll(); exit()" href="" routerLink="{{dataHeader[dataHeader.length - 1].mother.link}}" routerLinkActive="$router_link-active$">{{dataHeader[dataHeader.length - 1].mother.name}}</a>
+        <a rel="canonical" (click)="accordion.closeAll(); exit()" href="" routerLink="{{dataHeader[dataHeader.length - 1].mother.link}}" routerLinkActive="$router_link-active$">{{dataHeader[dataHeader.length - 1].mother.name}}</a>
       </mat-list-item>
     </mat-nav-list>
   </mat-expansion-panel>

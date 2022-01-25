@@ -20,7 +20,7 @@ export class ProductDetailsComponent implements OnInit{
   }
   public dataAddCart: any[] = [];
   public productItem1 = {
-  addCart: false,
+  addCart: false, checkBox: false,
   typeName: {name: '', id: ''},
   id: {name: '', link: ''},
   img: [{ name: '', link: '' }, ],
@@ -93,28 +93,17 @@ export class ProductDetailsComponent implements OnInit{
     }
     const idImg = document.getElementById('idImg' + k) as HTMLElement;
     idImg.style.display = 'block';
-    // $('.img-item').css({display: 'none'});
-    // $('#idImg' + k).css({display: 'block'});
   }
-
   public reload(): any {
     this.productItem1 = JSON.parse(JSON.stringify(this.productItem));
     this.booleanCart = JSON.parse(JSON.stringify(this.productItem.addCart));
   }
   public addCart(): any{
-    // const addCartBtn = document.getElementsByClassName('addCart')[0];
-    // const showOff = document.getElementsByClassName('showOff') as HTMLCollectionOf<HTMLElement>;
-    // showOff[0].style.display = 'none';
     if (this.productItem1 !== undefined){
-      // alert(this.convertBoolean(this.productItem1.addCart));
       this.productItem1.addCart = true;
-      console.log('addCart', this.productItem1.addCart);
+      this.productItem1.checkBox = true;
       this.dataAddCart.push(this.productItem1);
-      // console.log(this.dataAddCart);
       this.dataServicesService.dataAddCartItem$.next(this.dataAddCart);
-      // console.log(this.dataServicesService.dataAddCartItem$.getValue());
-      console.log('da click addCart');
-      console.log('typeof', this.convertBoolean(this.productItem1.addCart));
     }
   }
 
