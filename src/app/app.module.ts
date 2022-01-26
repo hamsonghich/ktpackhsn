@@ -33,7 +33,6 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { ProductDetailsMoreInfoComponent } from './product-details-more-info/product-details-more-info.component';
 import {RouterModule} from '@angular/router';
 import { MoreProductComponent } from './more-product/more-product.component';
 import { ProductTypeComponent } from './product-type/product-type.component';
@@ -102,7 +101,6 @@ import { FormMetaXopbongkhiComponent } from './formContent/formMetaTag/form-meta
     ProductDetailsComponent,
     NotFoundComponent,
     SideBarLeftComponent,
-    ProductDetailsMoreInfoComponent,
     MoreProductComponent,
     ProductTypeComponent,
     VachnhuaDanplaComponent,

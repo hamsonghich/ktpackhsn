@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FirebaseServiceService} from '../../../services/firebase-service.service';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
+import {FormServicesService} from '../service/form-services.service';
 
 @Component({
   selector: 'app-form-meta-thungnhua',
@@ -12,7 +13,7 @@ export class FormMetaThungnhuaComponent implements OnInit {
   public formMetaThungnhua: FormGroup | any;
   public formDataMetaTagThungnhua: any;
   constructor(public firebaseService: FirebaseServiceService, public matDialogRef: MatDialogRef<FormMetaThungnhuaComponent>,
-              public fb: FormBuilder, public dialog: MatDialog) {
+              public fb: FormBuilder, public dialog: MatDialog, public formServices: FormServicesService) {
     this.formMetaThungnhua = this.fb.group({
       metaTagName: this.fb.array([
         this.fb.group({

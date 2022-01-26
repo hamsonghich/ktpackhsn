@@ -5,6 +5,7 @@ import {FirebaseServiceService} from '../../services/firebase-service.service';
 import {MatDialogRef} from '@angular/material/dialog';
 import {DataServicesService} from '../../services/data-services.service';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
+import {FormServicesService} from '../formMetaTag/service/form-services.service';
 @Component({
   selector: 'app-form-thungnhuadanpla',
   templateUrl: './form-thungnhuadanpla.component.html',
@@ -14,7 +15,7 @@ export class FormThungnhuadanplaComponent implements OnInit {
   public typeThungdanpla: any[] = [];
   // tslint:disable-next-line:max-line-length
   constructor(public fb: FormBuilder, public firebaseService: FirebaseServiceService, public matDialogRef: MatDialogRef<FormThungnhuadanplaComponent>,
-              public dataServicesService: DataServicesService) {
+              public dataServicesService: DataServicesService, public formService: FormServicesService) {
     this.firebaseService.readFunctionalityObject('/tieudeMain').subscribe((res: any) => {
       this.typeThungdanpla = res.thungnhuadanpla;
     });
