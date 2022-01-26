@@ -1,19 +1,32 @@
 import 'zone.js/dist/zone-node';
-
+import '@angular/localize/init';
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import * as express from 'express';
 import { join } from 'path';
-
 import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
 import {environment} from './src/environments/environment';
-
+(global as any).WebSocket = require('ws');
+(global as any).XMLHttpRequest = require('xhr2');
+const MockBrowser = require('mock-browser').mocks.MockBrowser;
+const mock = new MockBrowser();
+global.document = mock.getDocument();
+global.window = mock.getWindow();
+Object.defineProperty(window.document.body.style, 'transform', {
+  value: () => {
+    return {
+      enumerable: true,
+      configurable: true
+    };
+  },
+});
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
-  const websiteFileLocation = environment.production ? 'browser' : 'dist/functions/browser';
-  const distFolder = join(process.cwd(), websiteFileLocation);
+  const distFolder = join(process.cwd(), 'dist/functions/browser');
+  // const websiteFileLocation = environment.production ? 'browser' : 'dist/functions/browser';
+  // const distFolder = join(process.cwd(), websiteFileLocation);
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)

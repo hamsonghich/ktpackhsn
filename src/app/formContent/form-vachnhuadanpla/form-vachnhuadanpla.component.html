@@ -1,5 +1,39 @@
 <form class="formContent" action="" [formGroup]="formContentVachnhuadanpla">
 
+<!--  <button class="btnCustomForm" mat-raised-button color="primary" [disabled]="checkLengthArr('metaTag')"-->
+<!--          (click)="addArrItem('metaTag')">-->
+<!--    Thêm ảnh (tối đa 10 metaTag)-->
+<!--  </button>-->
+  <p>MetaTag</p>
+  <div class="contentItem metaTag">
+    <div formGroupName="metaTag">
+      <div formArrayName="metaTagName" *ngFor="let item of metaTagaName1.controls; let i = index">
+        <div [formGroupName]="i">
+          <mat-form-field appearance="outline">
+            <mat-label class="text-primary">** name</mat-label>
+            <input matInput placeholder="name" formControlName="name">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label class="text-primary">** content</mat-label>
+            <input matInput placeholder="content" formControlName="content">
+          </mat-form-field>
+        </div>
+      </div>
+      <div formArrayName="metaTagProperty" *ngFor="let item of metaTagProperty1.controls; let i = index">
+        <div [formGroupName]="i">
+          <mat-form-field appearance="outline">
+            <mat-label class="text-primary">** property</mat-label>
+            <input matInput placeholder="property" formControlName="property">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label class="text-primary">** content</mat-label>
+            <input matInput placeholder="content" formControlName="content">
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="contentItem typeName" formGroupName="typeName">
     <mat-form-field appearance="outline">
       <mat-label class="text-primary">** Tên kiểu sản phẩm</mat-label>

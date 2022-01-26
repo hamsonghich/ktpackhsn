@@ -1,5 +1,39 @@
 <form class="formContent" action="" [formGroup]="formContentThungnhuadanpla">
 
+<!--  <button class="btnCustomForm" mat-raised-button color="primary" [disabled]="checkLengthArr('metaTag')"-->
+<!--          (click)="addArrItem('metaTag')">-->
+<!--    Thêm ảnh (tối đa 10 metaTag)-->
+<!--  </button>-->
+  <p>MetaTag</p>
+  <div class="contentItem metaTag">
+    <div formGroupName="metaTag">
+      <div formArrayName="metaTagName" *ngFor="let item of metaTagaName1.controls; let i = index">
+        <div [formGroupName]="i">
+          <mat-form-field appearance="outline">
+            <mat-label class="text-primary">** name</mat-label>
+            <input matInput placeholder="name" formControlName="name">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label class="text-primary">** content</mat-label>
+            <input matInput placeholder="content" formControlName="content">
+          </mat-form-field>
+        </div>
+      </div>
+      <div formArrayName="metaTagProperty" *ngFor="let item of metaTagProperty1.controls; let i = index">
+        <div [formGroupName]="i">
+          <mat-form-field appearance="outline">
+            <mat-label class="text-primary">** property</mat-label>
+            <input matInput placeholder="property" formControlName="property">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label class="text-primary">** content</mat-label>
+            <input matInput placeholder="content" formControlName="content">
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="contentItem typeName" formGroupName="typeName">
     <mat-form-field appearance="outline">
       <mat-label class="text-primary">** Tên kiểu sản phẩm</mat-label>
@@ -28,7 +62,7 @@
   </button>
 
   <div class="contentItem img">
-    <div  formArrayName="img" *ngFor="let item of img1.controls; let i = index">
+    <div formArrayName="img" *ngFor="let item of img1.controls; let i = index">
       <div [formGroupName]="i">
         <p class="text-warning">ảnh thứ {{i}}</p>
         <mat-form-field appearance="outline">
@@ -39,7 +73,9 @@
           <mat-label class="text-primary">** link ảnh</mat-label>
           <input matInput placeholder="link ảnh" formControlName="link">
         </mat-form-field>
-        <button mat-raised-button color="accent" [disabled]="checkLengthArr('imgItem')" (click)="insertItemUp(i, 'imgItem')">Chèn Trên</button>
+        <button mat-raised-button color="accent" [disabled]="checkLengthArr('imgItem')"
+                (click)="insertItemUp(i, 'imgItem')">Chèn Trên
+        </button>
         <button mat-raised-button color="warn" (click)="deleteItem(i, 'imgItem')">Xóa</button>
       </div>
     </div>
@@ -91,16 +127,19 @@
     <div class="text-warning" *ngIf="evaluateNumber.errors">Nhập kiểu số</div>
   </div>
 
-  <button mat-raised-button color="primary" [disabled]="checkLengthArr('descriptionItem')" (click)="addArrItem('descriptionItem')">
+  <button mat-raised-button color="primary" [disabled]="checkLengthArr('descriptionItem')"
+          (click)="addArrItem('descriptionItem')">
     Thêm mô tả
   </button>
   <div class="contentItem description">
-    <div  formArrayName="description" *ngFor="let item of description1.controls; let i = index">
+    <div formArrayName="description" *ngFor="let item of description1.controls; let i = index">
       <div [formGroupName]="i">
         <p class="text-warning">Đoạn thứ {{i}}</p>
         <angular-editor placeholder="tiêu đề" formControlName="title"></angular-editor>
         <angular-editor [config]="editorConfig" placeholder="nội dung" formControlName="content"></angular-editor>
-        <button mat-raised-button color="accent" [disabled]="checkLengthArr('descriptionItem')" (click)="insertItemUp(i, 'descriptionItem')">Chèn Trên</button>
+        <button mat-raised-button color="accent" [disabled]="checkLengthArr('descriptionItem')"
+                (click)="insertItemUp(i, 'descriptionItem')">Chèn Trên
+        </button>
         <button mat-raised-button color="warn" (click)="deleteItem(i, 'descriptionItem')">Xóa</button>
       </div>
     </div>
@@ -111,7 +150,9 @@
 
 <div class="groupBtn" style="margin-top: 10px;">
   <button mat-raised-button color="accent" mat-dialog-close>Cancel</button>
-  <button mat-raised-button color="primary" [disabled]="formContentThungnhuadanpla.invalid" (click)="onSubmit()" *ngIf="!isEdit">Submit</button>
+  <button mat-raised-button color="primary" [disabled]="formContentThungnhuadanpla.invalid" (click)="onSubmit()"
+          *ngIf="!isEdit">Submit
+  </button>
   <button mat-raised-button color="warn" (click)="saveRowData()" *ngIf="isEdit">Save</button>
 </div>
 

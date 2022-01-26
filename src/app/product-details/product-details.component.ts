@@ -5,7 +5,7 @@ import { DOCUMENT } from '@angular/common';
 import {Observable} from 'rxjs';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {FirebaseServiceService} from '../services/firebase-service.service';
-
+import { Meta } from '@angular/platform-browser';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -15,7 +15,7 @@ import {FirebaseServiceService} from '../services/firebase-service.service';
 export class ProductDetailsComponent implements OnInit{
   constructor(public activatedRoute: ActivatedRoute, public dataServicesService: DataServicesService,
               @Inject(DOCUMENT) public document: Document,  public router: Router, public firebaseService: FirebaseServiceService,
-            ) {
+              private meta: Meta ) {
     this.dataServicesService.checkUrlAdmin = this.dataServicesService.checkUrl();
   }
   public dataAddCart: any[] = [];
@@ -24,6 +24,22 @@ export class ProductDetailsComponent implements OnInit{
   typeName: {name: '', id: ''},
   id: {name: '', link: ''},
   img: [{ name: '', link: '' }, ],
+  metaTag: {
+    metaTagName: [
+        {name: '', content: ''},
+        {name: '', content: ''},
+        {name: '', content: ''},
+        {name: '', content: ''},
+        {name: '', content: ''},
+      ],
+    metaTagProperty: [
+        {property: '', content: ''},
+        {property: '', content: ''},
+        {property: '', content: ''},
+        {property: '', content: ''},
+        {property: '', content: ''},
+      ],
+    },
   address: {name: ''},
   price: {name: ''},
   sellNumber: {name: ''},
@@ -79,6 +95,16 @@ export class ProductDetailsComponent implements OnInit{
         console.log(this.dataItemProductTotal);
         this.productItem1 = this.productItem;
         // this.booleanCart = JSON.parse(JSON.stringify(this.productItem.addCart));
+        this.productItem1.metaTag.metaTagName.forEach(item => {
+          this.meta.addTags([
+            { name: item.name, content: item.content },
+            ]);
+        });
+        this.productItem1.metaTag.metaTagProperty.forEach(item => {
+          this.meta.addTags([
+            { name: item.property, content: item.content },
+          ]);
+        });
       });
       // console.log(this.dataItemProductTotal.length);
       // console.log(this.firebaseService.temp1);

@@ -1,0 +1,31 @@
+<form action="" [formGroup]="formMetaXoppefoameva">
+  <div formGroupName="metaTagName" *ngFor="let item of getMetaTagName.controls; let i = index">
+    <div [formArrayName]="i">
+      <mat-form-field appearance="outline">
+        <mat-label>name</mat-label>
+        <input type="text" matInput formControlName="name">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>content</mat-label>
+        <input type="text" matInput formControlName="content">
+      </mat-form-field>
+    </div>
+  </div>
+  <div formGroupName="metaTagProperty" *ngFor="let item of getMetaTagProperty.controls; let i = index">
+    <div [formArrayName]="i">
+      <mat-form-field appearance="outline">
+        <mat-label>property</mat-label>
+        <input type="text" matInput formControlName="property">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>content</mat-label>
+        <input type="text" matInput formControlName="content">
+      </mat-form-field>
+    </div>
+  </div>
+</form>
+
+<div class="btnGroup">
+  <button mat-raised-button (click)="dialog.closeAll()">Hủy bỏ</button>
+  <button mat-raised-button class="btnCustomForm" (click)="onSubmit()">Áp dụng</button>
+</div>

@@ -88,7 +88,76 @@ export class FormXoppefoamevaComponent implements OnInit {
           link: ['link ảnh', [Validators.required]],
         }),
       ]),
+      metaTag: this.fb.group({
+        metaTagName: this.fb.array([
+          this.fb.group({
+            name: [''],
+            content: [''],
+          }),
+          this.fb.group({
+            name: [''],
+            content: [''],
+          }),
+          this.fb.group({
+            name: [''],
+            content: [''],
+          }),
+          this.fb.group({
+            name: [''],
+            content: [''],
+          }),
+          this.fb.group({
+            name: [''],
+            content: [''],
+          }),
+        ]),
+        metaTagProperty: this.fb.array([
+          this.fb.group({
+            property: ['og:type'],
+            content: [''],
+          }),
+          this.fb.group({
+            property: ['og:title'],
+            content: [''],
+          }),
+          this.fb.group({
+            property: ['og:description'],
+            content: [''],
+          }),
+          this.fb.group({
+            property: ['og:image'],
+            content: [''],
+          }),
+          this.fb.group({
+            property: ['og:url'],
+            content: [''],
+          }),
+          this.fb.group({
+            property: ['og:site_name'],
+            content: [''],
+          }),
+          this.fb.group({
+            property: ['og:locale'],
+            content: ['vi_VN'],
+          }),
+        ]),
+      }),
     });
+  }
+  // tslint:disable-next-line:typedef
+  get metaTag1(){
+    const metaTagArr = this.formContentXopPeFoamEva.controls.metaTag as FormArray;
+    return metaTagArr;
+  }
+  // tslint:disable-next-line:typedef
+  get metaTagaName1(){
+    const metaTagName = (this.formContentXopPeFoamEva.controls.metaTag as FormGroup).controls.metaTagName as FormArray;
+    return metaTagName;
+  }
+  // tslint:disable-next-line:typedef
+  get metaTagProperty1(){
+    const metaTagProperty = (this.formContentXopPeFoamEva.controls.metaTag as FormGroup).controls.metaTagProperty as FormArray;
+    return metaTagProperty;
   }
   // tslint:disable-next-line:typedef
   get img1(){

@@ -4,6 +4,8 @@ import {FirebaseServiceService} from '../../../services/firebase-service.service
 import {AngularFireDatabase} from '@angular/fire/database';
 import {DataServicesService} from '../../../services/data-services.service';
 import {FormXoppefoamevaComponent} from '../../../formContent/form-xoppefoameva/form-xoppefoameva.component';
+import {FormMetaThungnhuaComponent} from '../../../formContent/formMetaTag/form-meta-thungnhua/form-meta-thungnhua.component';
+import {FormMetaXopPeFoamEvaComponent} from '../../../formContent/formMetaTag/form-meta-xop-pe-foam-eva/form-meta-xop-pe-foam-eva.component';
 
 @Component({
   selector: 'app-content-xoppefoameva',
@@ -11,10 +13,8 @@ import {FormXoppefoamevaComponent} from '../../../formContent/form-xoppefoameva/
   styleUrls: ['./content-xoppefoameva.component.scss']
 })
 export class ContentXoppefoamevaComponent implements OnInit {
-
+  public dataFormMetaTagXoppefoameva: any;
   public isCheckNotication = true; public temp: any;
-  public dataContentXoppefoameva: any[] = [];
-  public dataContentXoppefoameva1: any[] = [];
   public dataTableCustomer: any[] = [];
   public dataSpe: any;
 
@@ -28,6 +28,9 @@ export class ContentXoppefoamevaComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllCustomer();
+    this.firebaseService.readFunctionalityObject('/metaTag/metaTagXoppefoameva').subscribe((res: any) => {
+      this.dataFormMetaTagXoppefoameva  = res;
+    });
   }
   public createXoppefoamevaBtn(): any{
     this.dialog.open(FormXoppefoamevaComponent, {
@@ -118,5 +121,17 @@ export class ContentXoppefoamevaComponent implements OnInit {
   public showAll(): any{
     this.dataSearchKeyword = this.dataTableCustomer;
   }
-
+  public openDialogMetaTag(rowData: any): any{
+    const dialogRef =  this.dialog.open(FormMetaXopPeFoamEvaComponent, {
+      height: '350px', width: '500px'
+    });
+    // tslint:disable-next-line:max-line-length
+    dialogRef.componentInstance.formDataMetaTagXoppefoameva = rowData; // gan du lieu  formData cua createCustomer  =  voi rowData (rowData la data cua tung hang)
+    // sau khi dong dialog thi chay ham updatedata vs du lieu da co (nhung phai co ham close() cua diaglog thi  moi co tac dung)
+    dialogRef.afterClosed().subscribe(res => {
+      if (res && res.data){
+        this.firebaseService.updateFunctionality(res.data , '/metaTag/metaTagXoppefoameva');
+      }
+    });
+  }
 }

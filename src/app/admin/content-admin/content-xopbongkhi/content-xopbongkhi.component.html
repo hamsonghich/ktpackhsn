@@ -1,7 +1,10 @@
 <div class="container-fluid">
 
     <div class="title">
-     <i class="fad fa-badge"></i><span>Xốp bóng khí</span>
+      <div>
+        <i class="fad fa-badge"></i><span>Xốp bóng khí</span>
+      </div>
+      <button mat-raised-button class="btnCustomForm" (click)="openDialogMetaTag(this.dataFormMetaTagXopbongkhi)">Meta Tag</button>
     </div>
     <div class="toolbox">
       <div class="toolbox__child">
@@ -23,7 +26,7 @@
               <mat-icon>search</mat-icon>
             </button>
           </mat-form-field>
-  
+
         </div>
         <button (click)=" sortStar()" class="sortStar" mat-raised-button><i class="fal fa-sort-alt"></i><span>Sắp xếp theo </span><i class="fas fa-stars"></i></button>
         <button (click)="sortABC()" class="sortABC" mat-raised-button><i class="fal fa-sort-alpha-down"></i><span>Sắp xếp theo ABC</span></button>
@@ -32,7 +35,7 @@
       </div>
       <button class="addProduct" mat-raised-button (click)="createXopbongkhi()"><i class="fad fa-plus-square"></i><span>Tạo thêm sản phẩm</span></button>
     </div>
-  
+
     <table class="data_table" *ngIf="this.dataSearchKeyword">
       <tr>
         <th class="text-center" >STT</th>
@@ -62,9 +65,9 @@
     </table>
     <pagination-controls previousLabel="Trang trước" nextLabel="Trang sau" class="text-center" (pageChange)="page = $event"></pagination-controls>
   </div>
-  
+
   <!--<div>{{dataTableCustomer |json}}</div>-->
-  
+
   <div [hidden]="isCheckNotication" class="fix-content">
     <div class="box-question">
       <p class="text-notication"><i style="color: var(--bs-danger);font-size: 160%;margin-right:7px;" class="fad fa-exclamation-triangle"></i>Bạn có chắc chắn muốn xóa sản phẩm này không ?</p>
@@ -72,9 +75,8 @@
         <button (click)="closeNotication(); deleteDataCustomer(this.temp)" mat-stroked-button color="warn"><i class="fal fa-check"></i><span>Có</span></button>
         <button (click)="closeNotication()" mat-stroked-button color="primary"><i class="fal fa-times"></i><span>Không</span></button>
       </div>
-  
+
     </div>
   </div>
   <!--<div>&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</div>-->
   <!--<div *ngIf="this.dataContentXopbongkhi1">{{this.dataContentXopbongkhi1|json}}</div>-->
-  

@@ -44,7 +44,11 @@ export class TrangChuComponent implements OnInit {
   public dataAllProduct: any;
   public dataThungnhuaDanpla: any[] = [
     {
-      addCart: false,
+      addCart: false, checkBox: false,
+      metaTag: {
+        metaTagName: [{name: '', content: ''}],
+        metaTagProperty: [{name: '', content: ''}]
+      },
       typeName: {name: '', id: ''},
       id: {name: '', link: ''},
       img: [{ name: '', link: '' }, { name: '', link: '' }, { name: '', link: '' }, { name: '', link: '' }, ],
@@ -73,7 +77,11 @@ export class TrangChuComponent implements OnInit {
   ];
   public dataVachnhuaDanpla: any[] = [
     {
-      addCart: false,
+      addCart: false, checkBox: false,
+      metaTag: {
+        metaTagName: [{name: '', content: ''}],
+        metaTagProperty: [{name: '', content: ''}]
+      },
       typeName: {name: '', id: ''},
       id: {name: '', link: ''},
       img: [{ name: '', link: '' }, { name: '', link: '' }, { name: '', link: '' }, { name: '', link: '' }, ],
@@ -102,7 +110,11 @@ export class TrangChuComponent implements OnInit {
   ];
   public dataXoppefoameva: any[] = [
     {
-      addCart: false,
+      addCart: false, checkBox: false,
+      metaTag: {
+        metaTagName: [{name: '', content: ''}],
+        metaTagProperty: [{name: '', content: ''}]
+      },
       typeName: {name: '', id: ''},
       id: {name: '', link: ''},
       img: [{ name: '', link: '' }, { name: '', link: '' }, { name: '', link: '' }, { name: '', link: '' }, ],
@@ -131,7 +143,11 @@ export class TrangChuComponent implements OnInit {
   ];
   public dataXopbongkhi: any[] = [
     {
-      addCart: false,
+      addCart: false, checkBox: false,
+      metaTag: {
+        metaTagName: [{name: '', content: ''}],
+        metaTagProperty: [{name: '', content: ''}]
+      },
       typeName: {name: '', id: ''},
       id: {name: '', link: ''},
       img: [{ name: '', link: '' }, { name: '', link: '' }, { name: '', link: '' }, { name: '', link: '' }, ],
@@ -191,30 +207,6 @@ export class TrangChuComponent implements OnInit {
     this.getAllDataProduct();
     this.getAllDataHeader();
   }
-  customOptionsMain: OwlOptions = {
-    loop: true,
-    mouseDrag: true,
-    touchDrag: true,
-    pullDrag: false,
-    dots: false,
-    navSpeed: 700,
-    navText: ['', ''],
-    responsive: {
-      0: {
-        items: 1
-      },
-      400: {
-        items: 1
-      },
-      740: {
-        items: 1
-      },
-      940: {
-        items: 1
-      }
-    },
-    nav: true
-  };
   customOptionsItem: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -277,30 +269,30 @@ export class TrangChuComponent implements OnInit {
   };
   ngOnInit(): void {
     this.meta.addTags([
-      {name: 'title', content: 'nhựa, nhua, plastic'},
-      {name: 'DC.title', content: 'Thung nhua danpla nhua  xop gia re'},
-      {name: 'geo.region', content: 'VN-66'},
-      {name: 'geo.placename', content: 'hung yen'},
-      {name: 'geo.position', content: '13.290403;108.426511'},
-      {name: 'ICBM', content: '13.290403, 108.426511'},
-      {name: 'keywords', content: 'nhựa, plastic, nhua, xop, xop bong khi, xong eva,'},
-      {name: 'description', content: 'thung nhua danpla, vach nhua danpla, xop bong khi, xop eva, xop foam,  THÙNG NHỰA DANPLA , VÁCH NHỰA DANPLA , XỐP EVA , XỐP PE FOAM,  XỐP BÓNG KHÍ'},
-      {property: 'og:description', content: 'chuyên sản xuất và cung cấp thùng nhựa danpla, vách nhựa danpla, xốp bóng khí, xốp eva, xốp foam '},
-      {property: 'og:url', content: 'https://ktpack.tk/trangchu'},
-      {property: 'og:site_name', content: 'ktpack'},
-      {name: 'robot', content: 'index, follow'},
-      {name: 'revisit-after', content: '1 days'},
-      {name: 'google', content: 'ktpack/'},
-      {name: 'google-site-verification', content: ''},
-
-      {property: 'og:title', content: 'Thùng nhựa danpla,danpla box'},
-      {property: 'article:author', content: 'Thùng nhựa danpla,danpla box'},
-      // google++
-      {itemprop: 'name', content: 'Thùng nhựa danpla,danpla box'},
-      {itemprop: 'description', content: 'thung nhua danpla, vach nhua danpla, xop bong khi, xop eva, xop foam,  THÙNG NHỰA DANPLA , VÁCH NHỰA DANPLA , XỐP EVA , XỐP PE FOAM,  XỐP BÓNG KHÍ\''},
-      {itemprop: 'keywords', content: 'plastic'},
-      {itemprop: 'image', content: 'plastic'},
-      {itemprop: 'image', content: 'https://ktpack.tk/assets/Storage/Upload/banner/Banner_trangchu_1.jpeg'},
+      // {name: 'title', content: 'nhựa, nhua, plastic'},
+      // {name: 'DC.title', content: 'Thung nhua danpla nhua  xop gia re'},
+      // {name: 'geo.region', content: 'VN-66'},
+      // {name: 'geo.placename', content: 'hung yen'},
+      // {name: 'geo.position', content: '13.290403;108.426511'},
+      // {name: 'ICBM', content: '13.290403, 108.426511'},
+      // {name: 'keywords', content: 'nhựa, plastic, nhua, xop, xop bong khi, xong eva,'},
+      // {name: 'description', content: 'thung nhua danpla, vach nhua danpla, xop bong khi, xop eva, xop foam,  THÙNG NHỰA DANPLA , VÁCH NHỰA DANPLA , XỐP EVA , XỐP PE FOAM,  XỐP BÓNG KHÍ'},
+      // {property: 'og:description', content: 'chuyên sản xuất và cung cấp thùng nhựa danpla, vách nhựa danpla, xốp bóng khí, xốp eva, xốp foam '},
+      // {property: 'og:url', content: 'https://ktpack.tk/trangchu'},
+      // {property: 'og:site_name', content: 'ktpack'},
+      // {name: 'robot', content: 'index, follow'},
+      // {name: 'revisit-after', content: '1 days'},
+      // {name: 'google', content: 'ktpack/'},
+      // {name: 'google-site-verification', content: ''},
+      //
+      // {property: 'og:title', content: 'Thùng nhựa danpla,danpla box'},
+      // {property: 'article:author', content: 'Thùng nhựa danpla,danpla box'},
+      // // google++
+      // {itemprop: 'name', content: 'Thùng nhựa danpla,danpla box'},
+      // {itemprop: 'description', content: 'thung nhua danpla, vach nhua danpla, xop bong khi, xop eva, xop foam,  THÙNG NHỰA DANPLA , VÁCH NHỰA DANPLA , XỐP EVA , XỐP PE FOAM,  XỐP BÓNG KHÍ\''},
+      // {itemprop: 'keywords', content: 'plastic'},
+      // {itemprop: 'image', content: 'plastic'},
+      // {itemprop: 'image', content: 'https://ktpack.tk/assets/Storage/Upload/banner/Banner_trangchu_1.jpeg'},
     ]);
   }
   public getAllTrangchu(): any{

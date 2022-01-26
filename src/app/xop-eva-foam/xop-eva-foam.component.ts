@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DataServicesService} from '../services/data-services.service';
 import {FirebaseServiceService} from '../services/firebase-service.service';
+import {Meta} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-xop-eva-foam',
@@ -8,14 +9,44 @@ import {FirebaseServiceService} from '../services/firebase-service.service';
   styleUrls: ['./xop-eva-foam.component.scss']
 })
 export class XopEvaFoamComponent implements OnInit {
-
-  constructor(public dataServicesService: DataServicesService, public firebaseService: FirebaseServiceService) {
+  public dataMetaTag: any;
+  constructor(public dataServicesService: DataServicesService, public firebaseService: FirebaseServiceService,
+              public meta: Meta) {
     this.dataServicesService.checkUrlAdmin = this.dataServicesService.checkUrl();
+    this.firebaseService.readFunctionalityObject('/metaTag/metaTagXoppefoameva').subscribe((res: any) => {
+      this.dataMetaTag = res;
+      this.dataMetaTag.metaTagName.forEach((item: { name: any; content: any; }) => {
+        this.meta.addTags([
+          {name: item.name, content: item.content}
+        ]);
+      });
+      this.dataMetaTag.metaTagProperty.forEach((item: { property: any; content: any; }) => {
+        this.meta.addTags([
+          {property: item.property, content: item.content}
+        ]);
+      });
+    });
   }
   public dataItemProductTotal: any;
   public dataXopPeFoamEva: any[] = [
     {
-      addCart: false,
+      addCart: false, checkBox: false,
+      metaTag: {
+        metaTagName: [
+          {name: '', content: ''},
+          {name: '', content: ''},
+          {name: '', content: ''},
+          {name: '', content: ''},
+          {name: '', content: ''},
+        ],
+        metaTagProperty: [
+          {property: '', content: ''},
+          {property: '', content: ''},
+          {property: '', content: ''},
+          {property: '', content: ''},
+          {property: '', content: ''},
+        ],
+      },
       typeName: {name: '', id: ''},
       id: {name: '', link: ''},
       img: [{ name: '', link: '' }, { name: '', link: '' }, { name: '', link: '' }, { name: '', link: '' }, ],

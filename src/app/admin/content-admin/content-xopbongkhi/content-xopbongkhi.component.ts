@@ -4,6 +4,8 @@ import {FirebaseServiceService} from '../../../services/firebase-service.service
 import {AngularFireDatabase} from '@angular/fire/database';
 import {DataServicesService} from '../../../services/data-services.service';
 import {FormXopbongkhiComponent} from '../../../formContent/form-xopbongkhi/form-xopbongkhi.component';
+import {FormMetaThungnhuaComponent} from '../../../formContent/formMetaTag/form-meta-thungnhua/form-meta-thungnhua.component';
+import {FormMetaXopbongkhiComponent} from '../../../formContent/formMetaTag/form-meta-xopbongkhi/form-meta-xopbongkhi.component';
 
 @Component({
   selector: 'app-content-xopbongkhi',
@@ -11,13 +13,9 @@ import {FormXopbongkhiComponent} from '../../../formContent/form-xopbongkhi/form
   styleUrls: ['./content-xopbongkhi.component.scss']
 })
 export class ContentXopbongkhiComponent implements OnInit {
-
+  public dataFormMetaTagXopbongkhi: any;
   public isCheckNotication = true; public temp: any;
-  public dataContentXopbongkhi: any[] = [];
-  public dataContentXopbongkhi1: any[] = [];
   public dataTableCustomer: any[] = [];
-  public dataSpe: any;
-
   public itemOfPageArr = [5, 10, 15, 20, 25, 30];
   public chooseItemOfPage = this.itemOfPageArr[0];  page = 1;
   public keySearch: any;
@@ -28,6 +26,9 @@ export class ContentXopbongkhiComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllCustomer();
+    this.firebaseService.readFunctionalityObject('/metaTag/metaTagXopbongkhi').subscribe((res: any) => {
+      this.dataFormMetaTagXopbongkhi = res;
+    });
   }
   public createXopbongkhi(): any{
     this.dialog.open(FormXopbongkhiComponent, {
@@ -40,14 +41,6 @@ export class ContentXopbongkhiComponent implements OnInit {
       this.dataTableCustomer = res;
       this.dataSearchKeyword = JSON.parse(JSON.stringify(this.dataTableCustomer));
     });
-  }
-  public getCustomerSpecify(link: string, id: string): any{
-    console.log(`${link}/${id}`);
-    this.angulardb.object(`${link}/${id}`).valueChanges().subscribe((res: any) => {
-      console.log(res);
-      this.dataSpe = res;
-    });
-    return this.angulardb.object(`${link}/${id}`).valueChanges().subscribe(res => res);
   }
   public updateCustomer(rowData: any, link: string): any{ // rowData chinh la du lieu cua tung hang trong bang
     const dialogRef = this.dialog.open(FormXopbongkhiComponent, {
@@ -117,5 +110,17 @@ export class ContentXopbongkhiComponent implements OnInit {
   public showAll(): any{
     this.dataSearchKeyword = this.dataTableCustomer;
   }
-
+  public openDialogMetaTag(rowData: any): any{
+    const dialogRef =  this.dialog.open(FormMetaXopbongkhiComponent, {
+      height: '350px', width: '500px'
+    });
+    // tslint:disable-next-line:max-line-length
+    dialogRef.componentInstance.formDataMetaTagXopbongkhi = rowData; // gan du lieu  formData cua createCustomer  =  voi rowData (rowData la data cua tung hang)
+    // sau khi dong dialog thi chay ham updatedata vs du lieu da co (nhung phai co ham close() cua diaglog thi  moi co tac dung)
+    dialogRef.afterClosed().subscribe(res => {
+      if (res && res.data){
+        this.firebaseService.updateFunctionality(res.data , '/metaTag/metaTagXopbongkhi');
+      }
+    });
+  }
 }

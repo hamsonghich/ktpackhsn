@@ -4,6 +4,8 @@ import {FirebaseServiceService} from '../../../services/firebase-service.service
 import {AngularFireDatabase} from '@angular/fire/database';
 import {DataServicesService} from '../../../services/data-services.service';
 import {FormVachnhuadanplaComponent} from '../../../formContent/form-vachnhuadanpla/form-vachnhuadanpla.component';
+import {FormMetaThungnhuaComponent} from '../../../formContent/formMetaTag/form-meta-thungnhua/form-meta-thungnhua.component';
+import {FormMetaVachnhuaComponent} from '../../../formContent/formMetaTag/form-meta-vachnhua/form-meta-vachnhua.component';
 
 @Component({
   selector: 'app-content-vachnhuadanpla',
@@ -11,13 +13,9 @@ import {FormVachnhuadanplaComponent} from '../../../formContent/form-vachnhuadan
   styleUrls: ['./content-vachnhuadanpla.component.scss']
 })
 export class ContentVachnhuadanplaComponent implements OnInit {
-
+  public dataFormMetaTagVachnhua: any;
   public isCheckNotication = true; public temp: any;
-  public dataContentVachnhuadanpla: any[] = [];
-  public dataContentVachnhuadanpla1: any[] = [];
   public dataTableCustomer: any[] = [];
-  public dataSpe: any;
-
   public itemOfPageArr = [5, 10, 15, 20, 25, 30];
   public chooseItemOfPage = this.itemOfPageArr[0];  page = 1;
   public keySearch: any;
@@ -28,6 +26,9 @@ export class ContentVachnhuadanplaComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllCustomer();
+    this.firebaseService.readFunctionalityObject('/metaTag/metaTagVachnhua').subscribe((res: any) => {
+      this.dataFormMetaTagVachnhua  = res;
+    });
   }
   public createVachnhuadanplaBtn(): any{
     this.dialog.open(FormVachnhuadanplaComponent, {
@@ -111,5 +112,17 @@ export class ContentVachnhuadanplaComponent implements OnInit {
   public showAll(): any{
     this.dataSearchKeyword = this.dataTableCustomer;
   }
-
+  public openDialogMetaTag(rowData: any): any{
+    const dialogRef =  this.dialog.open(FormMetaVachnhuaComponent, {
+      height: '350px', width: '500px'
+    });
+    // tslint:disable-next-line:max-line-length
+    dialogRef.componentInstance.formDataMetaTagVachnhua = rowData; // gan du lieu  formData cua createCustomer  =  voi rowData (rowData la data cua tung hang)
+    // sau khi dong dialog thi chay ham updatedata vs du lieu da co (nhung phai co ham close() cua diaglog thi  moi co tac dung)
+    dialogRef.afterClosed().subscribe(res => {
+      if (res && res.data){
+        this.firebaseService.updateFunctionality(res.data , '/metaTag/metaTagVachnhua');
+      }
+    });
+  }
 }

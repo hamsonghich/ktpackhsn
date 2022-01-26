@@ -80,6 +80,11 @@ import { ContentSocialComponent } from './admin/content-admin/content-social/con
 import { FormSocialComponent } from './formContent/form-social/form-social.component';
 import { ContentAccountComponent } from './admin/content-admin/content-account/content-account.component';
 import { FormAccountComponent } from './formContent/form-account/form-account.component';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import { FormMetaThungnhuaComponent } from './formContent/formMetaTag/form-meta-thungnhua/form-meta-thungnhua.component';
+import { FormMetaVachnhuaComponent } from './formContent/formMetaTag/form-meta-vachnhua/form-meta-vachnhua.component';
+import { FormMetaXopPeFoamEvaComponent } from './formContent/formMetaTag/form-meta-xop-pe-foam-eva/form-meta-xop-pe-foam-eva.component';
+import { FormMetaXopbongkhiComponent } from './formContent/formMetaTag/form-meta-xopbongkhi/form-meta-xopbongkhi.component';
 
 
 @NgModule({
@@ -134,39 +139,44 @@ import { FormAccountComponent } from './formContent/form-account/form-account.co
     ContentSocialComponent,
     FormSocialComponent,
     ContentAccountComponent,
-    FormAccountComponent
+    FormAccountComponent,
+    FormMetaThungnhuaComponent,
+    FormMetaVachnhuaComponent,
+    FormMetaXopPeFoamEvaComponent,
+    FormMetaXopbongkhiComponent
   ],
-  imports: [
-    BrowserModule.withServerTransition({appId: 'companyktpack'}),
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatIconModule,
-    MatButtonModule,
-    MatAutocompleteModule,
-    MatOptionModule,
-    MatFormFieldModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatExpansionModule,
-    MatListModule,
-    CdkAccordionModule,
-    A11yModule,
-    FormsModule,
-    NgxPaginationModule,
-    MatSelectModule,
-    MatButtonToggleModule,
-    NgbModule,
-    BrowserAnimationsModule,
-    CarouselModule,
-    RouterModule,
-    HttpClientModule,
-    MatBadgeModule,
-    MatCheckboxModule,
-    MatDialogModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule,
-    AngularEditorModule,
-  ],
+    imports: [
+        BrowserModule.withServerTransition({appId: 'companyktpack'}),
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatIconModule,
+        MatButtonModule,
+        MatAutocompleteModule,
+        MatOptionModule,
+        MatFormFieldModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatExpansionModule,
+        MatListModule,
+        CdkAccordionModule,
+        A11yModule,
+        FormsModule,
+        NgxPaginationModule,
+        MatSelectModule,
+        MatButtonToggleModule,
+        NgbModule,
+        BrowserAnimationsModule,
+        CarouselModule,
+        RouterModule,
+        HttpClientModule,
+        MatBadgeModule,
+        MatCheckboxModule,
+        MatDialogModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireDatabaseModule,
+        AngularEditorModule,
+        ScrollingModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -55,26 +55,4 @@ export class ContentLienheComponent implements OnInit {
       }
     });
   }
-  // tslint:disable-next-line:typedef
-  // async getStarted(){
-  //   await this.getFunctionalityObject().then((value: Lienhe) => {
-  //     this.Lienhe = value;
-  //   });
-  //   this.objectLienhe = this.Lienhe;
-  //   console.log(this.objectLienhe);
-  // }
-  // public getFunctionalityObject(): any{
-  //   return new Promise((resolve , reject) => {
-  //     this.angulardb.object('/Lienhe').valueChanges().subscribe(value => {
-  //       resolve(value);
-  //     });
-  //   });
-  //   // return this.angulardb.object('/Lienhe').valueChanges();
-  // }
-
-  public showDataTimeout(data1: any): any{
-    console.log(data1);
-    return data1;
-  }
-
 }

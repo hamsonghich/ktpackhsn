@@ -4,6 +4,7 @@ import {FirebaseServiceService} from '../../../services/firebase-service.service
 import {AngularFireDatabase} from '@angular/fire/database';
 import {FormThungnhuadanplaComponent} from '../../../formContent/form-thungnhuadanpla/form-thungnhuadanpla.component';
 import {DataServicesService} from '../../../services/data-services.service';
+import {FormMetaThungnhuaComponent} from '../../../formContent/formMetaTag/form-meta-thungnhua/form-meta-thungnhua.component';
 
 @Component({
   selector: 'app-content-thungnhuadanpla',
@@ -11,13 +12,9 @@ import {DataServicesService} from '../../../services/data-services.service';
   styleUrls: ['./content-thungnhuadanpla.component.scss']
 })
 export class ContentThungnhuadanplaComponent implements OnInit {
-  public checkHidden = true;
+  public dataFormMetaTagThungnhua: any;
   public isCheckNotication = true; public temp: any;
-  public dataContentThungnhuadanpa: any[] = [];
-  public dataContentThungnhuadanpa1: any[] = [];
   public dataTableCustomer: any[] = [];
-  public dataSpe: any;
-
   public itemOfPageArr = [5, 10, 15, 20, 25, 30];
   public chooseItemOfPage = this.itemOfPageArr[0];  page = 1;
   public keySearch: any;
@@ -27,6 +24,9 @@ export class ContentThungnhuadanplaComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllCustomer();
+    this.firebaseService.readFunctionalityObject('/metaTag/metaTagThungnhua').subscribe((res: any) => {
+      this.dataFormMetaTagThungnhua  = res;
+    });
   }
   public createThungnhuadanplaBtn(): any{
     this.dialog.open(FormThungnhuadanplaComponent, {
@@ -107,5 +107,17 @@ export class ContentThungnhuadanplaComponent implements OnInit {
   public showAll(): any{
     this.dataSearchKeyword =  this.dataTableCustomer;
   }
-
+  public openDialogMetaTag(rowData: any): any{
+    const dialogRef =  this.dialog.open(FormMetaThungnhuaComponent, {
+      height: '350px', width: '500px'
+    });
+    // tslint:disable-next-line:max-line-length
+    dialogRef.componentInstance.formDataMetaTagThungnhua = rowData; // gan du lieu  formData cua createCustomer  =  voi rowData (rowData la data cua tung hang)
+    // sau khi dong dialog thi chay ham updatedata vs du lieu da co (nhung phai co ham close() cua diaglog thi  moi co tac dung)
+    dialogRef.afterClosed().subscribe(res => {
+      if (res && res.data){
+        this.firebaseService.updateFunctionality(res.data , '/metaTag/metaTagThungnhua');
+      }
+    });
+  }
 }

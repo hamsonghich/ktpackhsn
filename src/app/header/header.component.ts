@@ -23,13 +23,10 @@ export class HeaderComponent implements OnInit {
   // tslint:disable-next-line:align
   @ViewChild('container-listMenuTop') containerListMenuTop: ElementRef | any;
 
-  public toggleMenuBtn = true;
   public counter = 0;
   public dataCart: any[] = [];
   public dataSearchKeyword: any[] = [];
   public dataSearchMatch: any[] = [];
-  public options1: any[] = [];
-  public dataTest: any[] = [];
   public linkImgLogo: any;
   public dataSocial: DataSocial|any;
   myControl = new FormControl();
@@ -56,40 +53,14 @@ export class HeaderComponent implements OnInit {
       dem.forEach((item1: any) => {
         this.dataCart.push(item1);
         this.counter = this.dataCart.length;
-        // console.log('---------ii---------');
-        // console.log(this.dataCart);
-        // console.log('----------ii--------');
       });
     });
-
-    // $(window).resize(() => {
-    //     const screenWidth = $(window).width();
-    //     // console.log('width:' +  screenWidth);
-    //     if (screenWidth as number  < 720) {
-    //         console.log('nho');
-    //         $('#top-header__right--menu').show();
-    //         $('#screenPC').hide();
-    //         $('#screenMobile').show();
-    //       }
-    //       else if  (screenWidth as number >= 720 ) {
-    //         console.log('to');
-    //         $('#top-header__right--menu').hide();
-    //         $('#screenPC').show();
-    //         $('#screenMobile').hide();
-    //       }
-    //   });
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value))
     );
-    console.log('------------------');
-    // console.log(this.dataServicesService.dataSearchHeader);
-    // this.dataServicesService.dataSearchHeader1 = this.filteredOptions;
-    // console.log(this.dataServicesService.dataSearchHeader1.length);
   }
   public height(): any{
-    // console.log('height: ' + $('#cdk-overlay-0').css('height'));
-    // return $('#cdk-overlay-0').css('height');
     const heightValue =  document.getElementById('cdk-overlay-0') as HTMLElement;
     return heightValue.style.height;
   }
@@ -102,9 +73,6 @@ export class HeaderComponent implements OnInit {
   }
 
   public getInputValue(): any {
-    // console.log('--------------------subject--------------');
-    // console.log(this.dataServicesService.currentNameSubject$.getValue());
-    // console.log('da chay vao result');
     this.dataSearchKeyword.splice(0, this.dataSearchKeyword.length);
     this.dataSearchMatch.splice(0, this.dataSearchMatch.length);
     this.firebaseService.getdata().then((res: any) => {
@@ -120,8 +88,6 @@ export class HeaderComponent implements OnInit {
       });
     });
     this.dataServicesService.currentNameSubject$.next(this.dataSearchMatch);
-    // console.log('data search match');
-    // console.log(this.dataSearchMatch);
     this.router.navigateByUrl(`/search-result`, );
   }
   public removeDauTV(str: string): any{
@@ -146,8 +112,6 @@ export class HeaderComponent implements OnInit {
     return str.toLowerCase();
   }
   public hideAutoComplete(): any{
-    // document.querySelectorAll<HTMLElement>('.mat-autocomplete-panel')[0].style.display = 'none';
-    // $('.mat-autocomplete-panel').hide();
     const classAutoCompete = document.getElementsByClassName('mat-autocomplete-panel')[0] as HTMLElement;
     return classAutoCompete.style.display = 'none';
   }
@@ -162,15 +126,7 @@ export class HeaderComponent implements OnInit {
       this.dataSocial = res;
     });
   }
-  public checkResizeScreen(): any{
-    const w = document.documentElement.clientWidth;
-    const h = document.documentElement.clientHeight;
-  }
   public toggleMenu(): any{
-    // this.toggleMenuBtn = !this.toggleMenuBtn;
-    // this.containerListMenuTop.nativeElement.classList.toggle('active');
-    // const containerListMenuTop = this.containerListMenuTop.nativeElement.classList.contains('container-listMenuTop');
-    // this.render.addClass(this.containerListMenuTop.nativeElement, 'is-active');
     document.getElementsByClassName('container-listMenuTop')[0].classList.toggle('active');
   }
 }
